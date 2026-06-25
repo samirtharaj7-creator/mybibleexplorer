@@ -41,7 +41,7 @@
     backdrop-filter:blur(10px);
   }
   .site-header .wrap{
-    min-height:72px;
+    min-height:64px;
     display:flex;
     align-items:center;
     justify-content:space-between;
@@ -54,7 +54,7 @@
   }
   .brand-link img{
     display:block;
-    width:clamp(174px,18vw,220px);
+    width:clamp(154px,16vw,200px);
     height:auto;
   }
   .site-nav{
@@ -75,24 +75,24 @@
   }
   .site-nav a:hover{color:var(--olive-deep);}
  
-  .hero{position:relative;padding:96px 0 70px;overflow:hidden;
+  .hero{position:relative;padding:72px 0 52px;overflow:hidden;
     background:radial-gradient(120% 80% at 78% 18%, rgba(201,164,76,.16), transparent 60%),linear-gradient(180deg,var(--parchment) 0%, var(--parchment-2) 100%);}
-  .hero .eyebrow{margin-bottom:22px;}
-  .hero h1{font-size:clamp(2.7rem,7vw,5rem);font-weight:600;max-width:14ch;}
+  .hero .eyebrow{margin-bottom:16px;}
+  .hero h1{font-size:clamp(2.55rem,5.6vw,4.35rem);font-weight:600;max-width:14ch;}
   .hero h1 em{font-style:italic;font-weight:500;color:var(--olive-deep);}
-  .tagline{margin-top:26px;font-family:"Cormorant Garamond",serif;font-style:italic;font-size:clamp(1.2rem,2.4vw,1.55rem);color:var(--brass-deep);letter-spacing:.01em;}
+  .tagline{margin-top:20px;font-family:"Cormorant Garamond",serif;font-style:italic;font-size:clamp(1.14rem,2.1vw,1.44rem);color:var(--brass-deep);letter-spacing:.01em;}
   .tagline .dot{color:var(--rule);padding:0 .5rem;}
-  .hero p.lede{margin-top:30px;max-width:50ch;color:#5f6673;font-size:1.06rem;}
-  .cta-row{margin-top:38px;display:flex;gap:16px;flex-wrap:wrap;}
-  .btn{display:inline-flex;align-items:center;gap:.5rem;font-family:"Inter",sans-serif;font-weight:600;font-size:.96rem;padding:14px 26px;border-radius:2px;text-decoration:none;transition:transform .18s ease, box-shadow .18s ease, background .2s;cursor:pointer;border:none;}
+  .hero p.lede{margin-top:22px;max-width:50ch;color:#5f6673;font-size:1.02rem;}
+  .cta-row{margin-top:28px;display:flex;gap:14px;flex-wrap:wrap;}
+  .btn{display:inline-flex;align-items:center;gap:.5rem;font-family:"Inter",sans-serif;font-weight:600;font-size:.92rem;padding:12px 22px;border-radius:2px;text-decoration:none;transition:transform .18s ease, box-shadow .18s ease, background .2s;cursor:pointer;border:none;}
   .btn-primary{background:var(--olive-deep);color:var(--parchment);}
   .btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 24px -12px rgba(11,31,58,.7);}
   .btn-ghost{color:var(--olive-deep);border:1px solid var(--olive);background:transparent;}
   .btn-ghost:hover{background:rgba(47,125,122,.08);}
  
   /* ===== MARQUEE ===== */
-  .shelf{padding:18px 0 64px;background:linear-gradient(180deg,var(--parchment-2),var(--parchment));overflow:hidden;}
-  .shelf-head{position:relative;max-width:var(--max);margin:0 auto 26px;padding:0 28px;display:flex;align-items:center;justify-content:center;}
+  .shelf{padding:6px 0 56px;background:linear-gradient(180deg,var(--parchment-2),var(--parchment));overflow:hidden;}
+  .shelf-head{position:relative;max-width:var(--max);margin:0 auto 16px;padding:0 28px;display:flex;align-items:center;justify-content:center;}
   .shelf-label{text-align:center;}
   .shelf-label .eyebrow{color:var(--brass-deep);}
   .shelf-controls{position:absolute;right:28px;top:50%;transform:translateY(-50%);display:flex;gap:8px;}
@@ -163,17 +163,44 @@
   .mission p{max-width:60ch;margin-top:22px;}
   .mission p:first-of-type{margin-top:30px;}
  
-  .lib-note{margin-top:18px;font-style:italic;color:var(--muted);font-size:.98rem;}
-  .journeys{margin-top:40px;display:grid;gap:1px;background:var(--rule);border:1px solid var(--rule);grid-template-columns:repeat(2,1fr);}
-  @media(max-width:720px){.journeys{grid-template-columns:1fr;}}
-  .jcard{background:var(--parchment);padding:34px 30px;text-decoration:none;color:inherit;display:flex;flex-direction:column;gap:12px;transition:background .25s;}
-  .jcard:hover{background:#fffdf8;}
-  .jcard h3{font-size:1.4rem;}
-  .jcard p{margin:0;color:#5f6673;font-size:.98rem;line-height:1.6;}
-  .jcard .go{margin-top:auto;font-family:"Inter",sans-serif;font-size:.82rem;font-weight:600;letter-spacing:.04em;color:var(--olive-deep);display:inline-flex;align-items:center;gap:.4rem;}
-  .jcard .go .arr{transition:transform .2s;}
-  .jcard:hover .go .arr{transform:translateX(4px);}
-  .lib-more{margin-top:22px;font-style:italic;color:var(--muted);}
+  .library-board{display:grid;grid-template-columns:minmax(300px,.78fr) minmax(0,1.22fr);gap:34px;align-items:start;}
+  .library-panel{--path-accent:#6b54b3;--path-tint:rgba(107,84,179,.1);position:relative;display:block;overflow:hidden;border:1px solid var(--rule);border-radius:8px;background:linear-gradient(135deg,#fffdf8 0%,#fff 64%,var(--path-tint) 100%);padding:34px;color:inherit;text-decoration:none;}
+  .library-panel::before{content:"";position:absolute;inset:0 0 auto;height:5px;background:var(--path-accent);}
+  .library-panel .section-head{max-width:12ch;margin-top:10px;}
+  .lib-note{margin:20px 0 0;color:#5f6673;font-size:1rem;line-height:1.7;max-width:35ch;}
+  .library-panel .go{margin-top:30px;}
+  .path-list{border:1px solid var(--rule);border-radius:8px;background:#fff;overflow:hidden;}
+  .path-row{--path-accent:var(--brass);--path-tint:rgba(201,164,76,.12);position:relative;display:grid;grid-template-columns:52px minmax(0,1fr) auto;gap:22px;align-items:center;padding:24px 26px;text-decoration:none;color:inherit;border-bottom:1px solid var(--rule);transition:background .22s ease,transform .22s ease;}
+  .path-row:last-child{border-bottom:0;}
+  .path-row::before{content:"";position:absolute;inset:0 auto 0 0;width:4px;background:var(--path-accent);transform:scaleY(.34);transform-origin:center;transition:transform .22s ease;}
+  .path-row:hover{background:linear-gradient(90deg,var(--path-tint),#fff 44%);transform:translateX(4px);}
+  .path-row:hover::before{transform:scaleY(1);}
+  .path-num{font-family:"Cormorant Garamond",Georgia,serif;font-size:2.1rem;line-height:1;color:var(--path-accent);}
+  .path-type{font-family:"Inter",sans-serif;font-size:.68rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--path-accent);}
+  .path-row h3{font-size:1.22rem;margin-top:5px;}
+  .path-row p{margin:6px 0 0;color:#5f6673;font-size:.94rem;line-height:1.55;}
+  .path-row .go,.library-panel .go{font-family:"Inter",sans-serif;font-size:.86rem;font-weight:700;letter-spacing:.03em;color:var(--olive-deep);display:inline-flex;align-items:center;gap:.45rem;white-space:nowrap;}
+  .path-row .go .arr,.library-panel .go .arr{transition:transform .2s;}
+  .path-row:hover .go .arr,.library-panel:hover .go .arr{transform:translateX(5px);}
+  .path-meta{display:inline-flex;align-items:center;width:max-content;max-width:100%;border:1px solid rgba(229,224,214,.9);border-radius:999px;background:#fffdf8;padding:6px 10px;font-family:"Inter",sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);}
+  .library-panel .path-meta{display:flex;margin-top:26px;}
+  .library-panel .go{display:flex;width:max-content;margin-top:18px;}
+  .j-herm{--path-accent:#6b54b3;--path-tint:rgba(107,84,179,.11);}
+  .j-psalm{--path-accent:#2f7d7a;--path-tint:rgba(47,125,122,.12);}
+  .j-dan{--path-accent:#9b7628;--path-tint:rgba(201,164,76,.16);}
+  .j-rev{--path-accent:#8a2f3a;--path-tint:rgba(193,86,79,.12);}
+  .j-sanc{--path-accent:#36432f;--path-tint:rgba(90,112,73,.13);}
+  .j-last{--path-accent:#3f5f86;--path-tint:rgba(63,95,134,.13);}
+  .lib-more{margin-top:24px;font-style:italic;color:var(--muted);}
+  @media(max-width:900px){
+    .library-board{grid-template-columns:1fr;}
+    .library-panel .section-head{max-width:14ch;}
+  }
+  @media(max-width:640px){
+    .library-panel{padding:28px;}
+    .path-row{grid-template-columns:40px minmax(0,1fr);gap:16px;padding:22px;}
+    .path-row .go{grid-column:2;margin-top:2px;}
+  }
  
   /* suggestion box */
   .suggest{background:var(--parchment-2);}
@@ -372,16 +399,21 @@
 <!-- LIBRARY LIST -->
 <section class="band" id="journeys" style="padding-top:40px;">
   <div class="wrap">
-    <p class="eyebrow reveal">The library</p>
-    <h2 class="section-head wide reveal">Where would you like to begin?</h2>
-    <p class="lib-note reveal">New studies are added as the library grows &mdash; so check back often.</p>
-    <div class="journeys reveal">
-      <a class="jcard" href="https://hermeneutics.mybibleexplorer.com"><h3>Interpreting the Bible</h3><p>Learn the principles that unlock any passage, so you're never waiting for someone else to tell you what it means.</p><span class="go">Open the guide <span class="arr">&rarr;</span></span></a>
-      <a class="jcard" href="https://psalms.mybibleexplorer.com"><h3>The Psalms</h3><p>The Bible's songbook, where every emotion &mdash; joy, grief, anger, gratitude &mdash; meets God head-on.</p><span class="go">Enter the Psalms <span class="arr">&rarr;</span></span></a>
-      <a class="jcard" href="https://daniel.mybibleexplorer.com"><h3>Daniel</h3><p>Kingdoms rise and fall, and through it all one truth holds: God is still on the throne.</p><span class="go">Begin Daniel <span class="arr">&rarr;</span></span></a>
-      <a class="jcard" href="https://revelation.mybibleexplorer.com/revelation/1/"><h3>Revelation</h3><p>The Bible's final act. Make sense of the symbols and find the hope at the center of it all.</p><span class="go">Unseal Revelation <span class="arr">&rarr;</span></span></a>
-      <a class="jcard" href="https://sanctuary.mybibleexplorer.com/#map"><h3>The Sanctuary</h3><p>A blueprint hidden in plain sight. See how its design tells the whole story of salvation.</p><span class="go">Step inside <span class="arr">&rarr;</span></span></a>
-      <a class="jcard" href="https://lastdayevents.mybibleexplorer.com/index.html"><h3>Last Day Events</h3><p>What does the Bible actually say about how it all ends &mdash; and how do you get ready?</p><span class="go">Look ahead <span class="arr">&rarr;</span></span></a>
+    <div class="library-board">
+      <a class="library-panel j-herm reveal" href="https://hermeneutics.mybibleexplorer.com">
+        <p class="eyebrow">Recommended first step</p>
+        <h2 class="section-head wide">Learn how to study any passage.</h2>
+        <p class="lib-note">If you are not sure where to start, begin here. The Hermeneutics Guide gives you the method for reading Scripture with context, care, and confidence.</p>
+        <span class="path-meta">Foundations</span>
+        <span class="go">Open the guide <span class="arr">&rarr;</span></span>
+      </a>
+      <div class="path-list reveal" aria-label="Study paths">
+        <a class="path-row j-psalm" href="https://psalms.mybibleexplorer.com"><span class="path-num">02</span><div class="path-copy"><span class="path-type">Prayer and worship</span><h3>The Psalms</h3><p>Bring joy, grief, anger, and gratitude into conversation with God.</p></div><span class="go">Enter <span class="arr">&rarr;</span></span></a>
+        <a class="path-row j-dan" href="https://daniel.mybibleexplorer.com"><span class="path-num">03</span><div class="path-copy"><span class="path-type">Prophecy</span><h3>Daniel</h3><p>Watch kingdoms rise and fall while God remains on the throne.</p></div><span class="go">Begin <span class="arr">&rarr;</span></span></a>
+        <a class="path-row j-rev" href="https://revelation.mybibleexplorer.com/revelation/1/"><span class="path-num">04</span><div class="path-copy"><span class="path-type">Final hope</span><h3>Revelation</h3><p>Read the symbols through worship, conflict, judgment, and hope.</p></div><span class="go">Unseal <span class="arr">&rarr;</span></span></a>
+        <a class="path-row j-sanc" href="https://sanctuary.mybibleexplorer.com/#map"><span class="path-num">05</span><div class="path-copy"><span class="path-type">Gospel pattern</span><h3>The Sanctuary</h3><p>Trace salvation through the sanctuary, feasts, priesthood, and ministry of Christ.</p></div><span class="go">Step inside <span class="arr">&rarr;</span></span></a>
+        <a class="path-row j-last" href="https://lastdayevents.mybibleexplorer.com/index.html"><span class="path-num">06</span><div class="path-copy"><span class="path-type">Readiness</span><h3>Last Day Events</h3><p>Follow final events in biblical sequence and prepare with clarity.</p></div><span class="go">Look ahead <span class="arr">&rarr;</span></span></a>
+      </div>
     </div>
     <p class="lib-more reveal">More journeys on the way.</p>
   </div>
