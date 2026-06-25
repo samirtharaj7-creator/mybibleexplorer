@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Bible Explorer — Know the Word. Live the Word.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Inter:wght@400;500;600&family=Literata:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#111827;
+    --parchment:#ffffff;
+    --parchment-2:#f6f8f7;
+    --brass:#c9a44c;
+    --brass-deep:#9b7628;
+    --olive:#2f7d7a;
+    --olive-deep:#0b1f3a;
+    --rule:#e5e0d6;
+    --muted:#5f6673;
+    --max:1080px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;background:var(--parchment);color:var(--ink);
+    font-family:"Literata",Georgia,serif;font-size:18px;line-height:1.75;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 28px;}
+ 
+  h1,h2,h3{font-family:"Cormorant Garamond",Georgia,serif;font-weight:600;line-height:1.1;letter-spacing:0;margin:0;}
+  .eyebrow{font-family:"Inter",sans-serif;font-size:.74rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--brass-deep);}
+ 
+  .hero{position:relative;padding:96px 0 70px;overflow:hidden;
+    background:radial-gradient(120% 80% at 78% 18%, rgba(201,164,76,.16), transparent 60%),linear-gradient(180deg,var(--parchment) 0%, var(--parchment-2) 100%);}
+  .hero .eyebrow{margin-bottom:22px;}
+  .hero h1{font-size:clamp(2.7rem,7vw,5rem);font-weight:600;max-width:14ch;}
+  .hero h1 em{font-style:italic;font-weight:500;color:var(--olive-deep);}
+  .tagline{margin-top:26px;font-family:"Cormorant Garamond",serif;font-style:italic;font-size:clamp(1.2rem,2.4vw,1.55rem);color:var(--brass-deep);letter-spacing:.01em;}
+  .tagline .dot{color:var(--rule);padding:0 .5rem;}
+  .hero p.lede{margin-top:30px;max-width:50ch;color:#5f6673;font-size:1.06rem;}
+  .cta-row{margin-top:38px;display:flex;gap:16px;flex-wrap:wrap;}
+  .btn{display:inline-flex;align-items:center;gap:.5rem;font-family:"Inter",sans-serif;font-weight:600;font-size:.96rem;padding:14px 26px;border-radius:2px;text-decoration:none;transition:transform .18s ease, box-shadow .18s ease, background .2s;cursor:pointer;border:none;}
+  .btn-primary{background:var(--olive-deep);color:var(--parchment);}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 24px -12px rgba(11,31,58,.7);}
+  .btn-ghost{color:var(--olive-deep);border:1px solid var(--olive);background:transparent;}
+  .btn-ghost:hover{background:rgba(47,125,122,.08);}
+ 
+  /* ===== MARQUEE ===== */
+  .shelf{padding:18px 0 64px;background:linear-gradient(180deg,var(--parchment-2),var(--parchment));overflow:hidden;}
+  .shelf-head{position:relative;max-width:var(--max);margin:0 auto 26px;padding:0 28px;display:flex;align-items:center;justify-content:center;}
+  .shelf-label{text-align:center;}
+  .shelf-label .eyebrow{color:var(--brass-deep);}
+  .shelf-controls{position:absolute;right:28px;top:50%;transform:translateY(-50%);display:flex;gap:8px;}
+  .shelf-btn{width:42px;height:42px;border:1px solid var(--rule);border-radius:50%;display:grid;place-items:center;background:rgba(255,253,248,.86);color:var(--olive-deep);box-shadow:0 10px 22px -18px rgba(40,40,30,.65);font-size:1.45rem;line-height:1;cursor:pointer;transition:background .2s ease, border-color .2s ease, transform .18s ease;}
+  .shelf-btn:hover{background:#fff;border-color:#c9a44c;transform:translateY(-1px);}
+  .shelf-btn:active{transform:translateY(0);}
+  .marquee{position:relative;width:100%;overflow-x:auto;overflow-y:hidden;scroll-behavior:smooth;scrollbar-width:none;-ms-overflow-style:none;cursor:grab;touch-action:pan-y;
+    -webkit-mask-image:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent);
+            mask-image:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent);}
+  .marquee::-webkit-scrollbar{display:none;}
+  .marquee.is-dragging{cursor:grabbing;scroll-behavior:auto;}
+  .track{display:flex;gap:26px;width:max-content;}
+ 
+  .frame{width:340px;flex:none;text-decoration:none;color:inherit;
+    background:#fff;border-radius:10px;overflow:hidden;
+    box-shadow:0 14px 30px -18px rgba(40,40,30,.55),0 2px 0 rgba(0,0,0,.02);
+    border:1px solid var(--rule);transition:transform .25s ease, box-shadow .25s ease;}
+  .frame:hover{transform:translateY(-6px);box-shadow:0 22px 44px -20px rgba(40,40,30,.6);}
+  .chrome{display:flex;align-items:center;gap:7px;padding:10px 13px;background:#f6f8f7;border-bottom:1px solid var(--rule);}
+  .dots{display:flex;gap:6px;}
+  .dots i{width:10px;height:10px;border-radius:50%;display:block;}
+  .dots i:nth-child(1){background:#e0816f;}
+  .dots i:nth-child(2){background:#e9c06a;}
+  .dots i:nth-child(3){background:#88b577;}
+  .addr{flex:1;background:#fffdf8;border:1px solid var(--rule);border-radius:4px;font-size:.66rem;color:var(--muted);padding:3px 9px;font-family:"Inter",sans-serif;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  /* preview "screenshot" — swap .shot for an <img> later */
+  .shot{height:188px;position:relative;display:flex;flex-direction:column;justify-content:center;padding:26px;overflow:hidden;}
+  .shot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top center;z-index:0;}
+  .shot.has-img::after{display:none;}
+  .shot.has-img h4,.shot.has-img p{display:none;}
+  .shot h4{font-family:"Cormorant Garamond",serif;font-weight:600;font-size:1.5rem;color:#fff;line-height:1.1;margin:0 0 8px;position:relative;z-index:2;}
+  .shot p{font-family:"Inter",sans-serif;font-size:.82rem;color:rgba(255,255,255,.9);margin:0;position:relative;z-index:2;max-width:24ch;}
+  .shot::after{content:"";position:absolute;inset:0;background:radial-gradient(120% 100% at 0% 0%,rgba(255,255,255,.18),transparent 55%);z-index:1;}
+  .s-herm{background:linear-gradient(135deg,#4b3b87,#6b54b3);}
+  .s-psalm{background:linear-gradient(135deg,#2f6f6a,#3f9a8e);}
+  .s-dan{background:linear-gradient(135deg,#8a5d29,#b8823c);}
+  .s-rev{background:linear-gradient(135deg,#8a2f3a,#c1564f);}
+  .s-sanc{background:linear-gradient(135deg,#36432f,#5a7049);}
+  .s-last{background:linear-gradient(135deg,#283a54,#3f5f86);}
+  .frame .cap{padding:14px 16px 16px;}
+  .frame .cap .nm{font-family:"Cormorant Garamond",serif;font-weight:600;font-size:1.02rem;color:var(--ink);}
+  .frame .cap .vt{font-family:"Inter",sans-serif;font-size:.78rem;color:var(--muted);margin-top:2px;}
+ 
+  .rule-deco{height:1px;background:linear-gradient(90deg,transparent,var(--rule) 12%,var(--rule) 88%,transparent);}
+ 
+  section.band{padding:84px 0;}
+  .band--olive{background:var(--olive-deep);color:#f7f3e8;}
+  .band--olive .eyebrow{color:#c9a44c;}
+  .band--olive h2{color:#f7f3e8;}
+  .section-head{max-width:30ch;}
+  .section-head.wide{max-width:24ch;}
+  section h2{font-size:clamp(2rem,4.4vw,3rem);}
+  .lead{margin-top:24px;max-width:58ch;}
+ 
+  .stats{margin-top:46px;display:grid;gap:26px;grid-template-columns:repeat(3,1fr);}
+  @media(max-width:760px){.stats{grid-template-columns:1fr;}}
+  .stat{border-top:2px solid var(--brass);padding-top:18px;}
+  .stat .num{font-family:"Cormorant Garamond",serif;font-weight:600;font-size:2.8rem;line-height:1;color:var(--brass-deep);}
+  .stat .lbl{margin-top:10px;font-size:.96rem;color:#5f6673;}
+ 
+  .turn{margin-top:42px;font-size:1.05rem;max-width:58ch;}
+  .turn strong{color:var(--ink);}
+ 
+  .scripture{margin:14px auto 0;max-width:760px;text-align:center;}
+  .scripture .q{font-family:"Cormorant Garamond",serif;font-style:italic;font-weight:500;font-size:clamp(1.6rem,4vw,2.4rem);line-height:1.3;color:#f7f3e8;}
+  .scripture .ref{margin-top:20px;font-family:"Inter",sans-serif;font-size:.8rem;letter-spacing:.2em;text-transform:uppercase;color:#c9a44c;}
+ 
+  .mission p{max-width:60ch;margin-top:22px;}
+  .mission p:first-of-type{margin-top:30px;}
+ 
+  .lib-note{margin-top:18px;font-style:italic;color:var(--muted);font-size:.98rem;}
+  .journeys{margin-top:40px;display:grid;gap:1px;background:var(--rule);border:1px solid var(--rule);grid-template-columns:repeat(2,1fr);}
+  @media(max-width:720px){.journeys{grid-template-columns:1fr;}}
+  .jcard{background:var(--parchment);padding:34px 30px;text-decoration:none;color:inherit;display:flex;flex-direction:column;gap:12px;transition:background .25s;}
+  .jcard:hover{background:#fffdf8;}
+  .jcard h3{font-size:1.4rem;}
+  .jcard p{margin:0;color:#5f6673;font-size:.98rem;line-height:1.6;}
+  .jcard .go{margin-top:auto;font-family:"Inter",sans-serif;font-size:.82rem;font-weight:600;letter-spacing:.04em;color:var(--olive-deep);display:inline-flex;align-items:center;gap:.4rem;}
+  .jcard .go .arr{transition:transform .2s;}
+  .jcard:hover .go .arr{transform:translateX(4px);}
+  .lib-more{margin-top:22px;font-style:italic;color:var(--muted);}
+ 
+  /* suggestion box */
+  .suggest{background:var(--parchment-2);}
+  .form{margin-top:34px;max-width:620px;display:flex;flex-direction:column;gap:16px;}
+  .form label{font-family:"Inter",sans-serif;font-size:.82rem;font-weight:600;letter-spacing:.02em;color:var(--olive-deep);margin-bottom:-6px;}
+  .form input,.form textarea{font-family:"Inter",sans-serif;font-size:1rem;color:var(--ink);background:#fffdf8;border:1px solid var(--rule);border-radius:4px;padding:13px 15px;width:100%;resize:vertical;}
+  .form input:focus,.form textarea:focus{outline:none;border-color:var(--brass);box-shadow:0 0 0 3px rgba(201,164,76,.15);}
+  .form .btn{align-self:flex-start;margin-top:6px;}
+ 
+  /* donate */
+  .donate{background:var(--olive-deep);color:#f7f3e8;text-align:center;}
+  .donate .eyebrow{color:#c9a44c;}
+  .donate h2{color:#f7f3e8;margin:0 auto;max-width:18ch;}
+  .donate p{margin:24px auto 0;max-width:52ch;color:#d8d3c3;}
+  .donate .btn{margin-top:34px;background:var(--brass);color:#fff;}
+  .donate .btn:hover{background:var(--brass-deep);}
+  .donate .fine{margin-top:18px;font-size:.86rem;font-style:italic;color:#d8d3c3;}
+ 
+  .close{padding:96px 0;text-align:center;background:radial-gradient(100% 90% at 50% 0%, rgba(201,164,76,.14), transparent 60%),var(--parchment);}
+  .close h2{font-size:clamp(2.2rem,5vw,3.3rem);max-width:18ch;margin:0 auto;}
+  .close p{margin:24px auto 0;max-width:42ch;color:#5f6673;}
+  .close .btn{margin-top:36px;}
+ 
+  footer{background:#0b1f3a;color:#c8ced8;padding:46px 0;font-family:"Inter",sans-serif;font-size:.86rem;}
+  footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:18px;align-items:center;}
+  footer .fbrand{font-family:"Cormorant Garamond",serif;font-style:italic;color:#f7f3e8;font-size:1.05rem;}
+  footer a{color:#f7f3e8;text-decoration:none;border-bottom:1px solid rgba(247,243,232,.38);}
+  footer a:hover{color:#fff;border-bottom-color:#fff;}
+ 
+  .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease, transform .7s ease;}
+  .reveal.in{opacity:1;transform:none;}
+  @media (prefers-reduced-motion:reduce){
+    .reveal{opacity:1;transform:none;transition:none;}
+    html{scroll-behavior:auto;}
+  }
+  @media(max-width:700px){
+    .shelf-head{justify-content:space-between;padding:0 18px;}
+    .shelf-label{text-align:left;}
+    .shelf-controls{position:static;transform:none;}
+    .shelf-btn{width:38px;height:38px;font-size:1.3rem;}
+    .frame{width:300px;}
+  }
+  :focus-visible{outline:2px solid var(--brass);outline-offset:3px;}
+</style>
+<link rel="stylesheet" href="global-shell.css">
+</head>
+<body>
+ 
+<header class="mbe-global-shell" data-tool="library">
+  <div class="mbe-shell-wrap">
+    <a class="mbe-brand-lockup" href="https://mybibleexplorer.com" aria-label="My Bible Explorer home">
+      <img class="mbe-brand-logo" src="assets/my-bible-explorer-logo.png" alt="My Bible Explorer">
+    </a>
+    <div class="mbe-site-context" aria-label="Current site">
+      <a class="mbe-back-home" href="https://mybibleexplorer.com">Back to My Bible Explorer</a>
+      <span class="mbe-current-site">Library Hub</span>
+    </div>
+    <nav class="mbe-global-nav" aria-label="My Bible Explorer">
+      <a href="#top">Home</a>
+      <details class="mbe-library-menu">
+        <summary class="mbe-library-toggle">Library</summary>
+        <div class="mbe-library-panel">
+          <div class="mbe-library-grid">
+            <a class="mbe-library-item" href="https://hermeneutics.mybibleexplorer.com"><span class="mbe-library-name">Hermeneutics</span><span class="mbe-library-desc">Learn to read Scripture faithfully</span></a>
+            <a class="mbe-library-item" href="https://psalms.mybibleexplorer.com"><span class="mbe-library-name">Psalms</span><span class="mbe-library-desc">Worship, lament, praise, and prayer</span></a>
+            <a class="mbe-library-item" href="https://daniel.mybibleexplorer.com"><span class="mbe-library-name">Daniel</span><span class="mbe-library-desc">Prophecy and providence</span></a>
+            <a class="mbe-library-item" href="https://revelation.mybibleexplorer.com/revelation/1/"><span class="mbe-library-name">Revelation</span><span class="mbe-library-desc">Symbols, judgment, and final hope</span></a>
+            <a class="mbe-library-item" href="https://sanctuary.mybibleexplorer.com/#map"><span class="mbe-library-name">Sanctuary</span><span class="mbe-library-desc">A blueprint of salvation</span></a>
+            <a class="mbe-library-item" href="https://lastdayevents.mybibleexplorer.com/index.html"><span class="mbe-library-name">Last Day Events</span><span class="mbe-library-desc">Earth's final chapter</span></a>
+            </div>
+        </div>
+      </details>
+      <a href="#donate">Give</a>
+      <a href="#suggest">Contact</a>
+    </nav>
+  </div>
+</header>
+ 
+<header class="hero" id="top">
+  <div class="wrap">
+    <p class="eyebrow reveal">A guide for everyday readers of Scripture</p>
+    <h1 class="reveal">Understand the Bible <em>for yourself.</em></h1>
+    <p class="tagline reveal">Know the Word.<span class="dot">&bull;</span>Live the Word.</p>
+    <p class="lede reveal">A growing library of guided journeys through Scripture, built for ordinary people who want to actually read it, understand it, and live it.</p>
+    <div class="cta-row reveal">
+      <a class="btn btn-primary" href="#journeys">Start exploring</a>
+      <a class="btn btn-ghost" href="#mission">Why we exist</a>
+    </div>
+  </div>
+</header>
+ 
+<!-- ===== ROLLING SHELF ===== -->
+<section class="shelf" aria-label="Browse the library">
+  <div class="shelf-head">
+    <div class="shelf-label">
+      <p class="eyebrow">The growing library</p>
+    </div>
+    <div class="shelf-controls" aria-label="Scroll the library manually">
+      <button class="shelf-btn" type="button" data-shelf-dir="-1" aria-label="Scroll library left">&#8249;</button>
+      <button class="shelf-btn" type="button" data-shelf-dir="1" aria-label="Scroll library right">&#8250;</button>
+    </div>
+  </div>
+  <div class="marquee" id="libraryMarquee" tabindex="0" aria-label="Featured Bible study websites">
+    <div class="track">
+      <!-- SET A -->
+      <a class="frame" href="https://hermeneutics.mybibleexplorer.com">
+        <div class="chrome"><span class="dots"><i></i><i></i><i></i></span><span class="addr">hermeneutics.mybibleexplorer.com</span></div>
+        <div class="shot s-herm"><img src="screenshots/hermeneutics.png" alt="Interpreting the Bible" onerror="this.remove()" onload="this.parentNode.classList.add('has-img')"><h4>Interpreting the Bible</h4><p>The principles that unlock any passage.</p></div>
+        <div class="cap"><div class="nm">Interpreting the Bible</div><div class="vt">Learn to read it for yourself</div></div>
+      </a>
+      <a class="frame" href="https://psalms.mybibleexplorer.com">
+        <div class="chrome"><span class="dots"><i></i><i></i><i></i></span><span class="addr">psalms.mybibleexplorer.com</span></div>
+        <div class="shot s-psalm"><img src="screenshots/psalms.png" alt="The Psalms" onerror="this.remove()" onload="this.parentNode.classList.add('has-img')"><h4>The Psalms</h4><p>Where every emotion meets God.</p></div>
+        <div class="cap"><div class="nm">The Psalms</div><div class="vt">The songbook of Scripture</div></div>
+      </a>
+      <a class="frame" href="https://daniel.mybibleexplorer.com">
+        <div class="chrome"><span class="dots"><i></i><i></i><i></i></span><span class="addr">daniel.mybibleexplorer.com</span></div>
+        <div class="shot s-dan"><img src="screenshots/daniel.png" alt="Daniel" onerror="this.remove()" onload="this.parentNode.classList.add('has-img')"><h4>Daniel</h4><p>Kingdoms rise and fall&mdash;God reigns.</p></div>
+        <div class="cap"><div class="nm">Daniel</div><div class="vt">Prophecy and providence</div></div>
+      </a>
+      <a class="frame" href="https://revelation.mybibleexplorer.com/revelation/1/">
+        <div class="chrome"><span class="dots"><i></i><i></i><i></i></span><span class="addr">revelation.mybibleexplorer.com</span></div>
+        <div class="shot s-rev"><img src="screenshots/revelation.png" alt="Revelation" onerror="this.remove()" onload="this.parentNode.classList.add('has-img')"><h4>Revelation</h4><p>Make sense of the symbols.</p></div>
+        <div class="cap"><div class="nm">Revelation</div><div class="vt">The Bible's final act</div></div>
+      </a>
+      <a class="frame" href="https://sanctuary.mybibleexplorer.com/#map">
+        <div class="chrome"><span class="dots"><i></i><i></i><i></i></span><span class="addr">sanctuary.mybibleexplorer.com</span></div>
+        <div class="shot s-sanc"><img src="screenshots/sanctuary.png" alt="The Sanctuary" onerror="this.remove()" onload="this.parentNode.classList.add('has-img')"><h4>The Sanctuary</h4><p>A blueprint of salvation.</p></div>
+        <div class="cap"><div class="nm">The Sanctuary</div><div class="vt">Hidden in plain sight</div></div>
+      </a>
+      <a class="frame" href="https://lastdayevents.mybibleexplorer.com/index.html">
+        <div class="chrome"><span class="dots"><i></i><i></i><i></i></span><span class="addr">lastdayevents.mybibleexplorer.com</span></div>
+        <div class="shot s-last"><img src="screenshots/lastdayevents.png" alt="Last Day Events" onerror="this.remove()" onload="this.parentNode.classList.add('has-img')"><h4>Last Day Events</h4><p>How it all ends&mdash;and how to be ready.</p></div>
+        <div class="cap"><div class="nm">Last Day Events</div><div class="vt">Earth's final chapter</div></div>
+      </a>
+      <!-- SET B (duplicate for seamless loop) -->
+      <a class="frame" href="https://hermeneutics.mybibleexplorer.com" aria-hidden="true" tabindex="-1">
+        <div class="chrome"><span class="dots"><i></i><i></i><i></i></span><span class="addr">hermeneutics.mybibleexplorer.com</span></div>
+        <div class="shot s-herm"><img src="screenshots/hermeneutics.png" alt="Interpreting the Bible" onerror="this.remove()" onload="this.parentNode.classList.add('has-img')"><h4>Interpreting the Bible</h4><p>The principles that unlock any passage.</p></div>
+        <div class="cap"><div class="nm">Interpreting the Bible</div><div class="vt">Learn to read it for yourself</div></div>
+      </a>
+      <a class="frame" href="https://psalms.mybibleexplorer.com" aria-hidden="true" tabindex="-1">
+        <div class="chrome"><span class="dots"><i></i><i></i><i></i></span><span class="addr">psalms.mybibleexplorer.com</span></div>
+        <div class="shot s-psalm"><img src="screenshots/psalms.png" alt="The Psalms" onerror="this.remove()" onload="this.parentNode.classList.add('has-img')"><h4>The Psalms</h4><p>Where every emotion meets God.</p></div>
+        <div class="cap"><div class="nm">The Psalms</div><div class="vt">The songbook of Scripture</div></div>
+      </a>
+      <a class="frame" href="https://daniel.mybibleexplorer.com" aria-hidden="true" tabindex="-1">
+        <div class="chrome"><span class="dots"><i></i><i></i><i></i></span><span class="addr">daniel.mybibleexplorer.com</span></div>
+        <div class="shot s-dan"><img src="screenshots/daniel.png" alt="Daniel" onerror="this.remove()" onload="this.parentNode.classList.add('has-img')"><h4>Daniel</h4><p>Kingdoms rise and fall&mdash;God reigns.</p></div>
+        <div class="cap"><div class="nm">Daniel</div><div class="vt">Prophecy and providence</div></div>
+      </a>
+      <a class="frame" href="https://revelation.mybibleexplorer.com/revelation/1/" aria-hidden="true" tabindex="-1">
+        <div class="chrome"><span class="dots"><i></i><i></i><i></i></span><span class="addr">revelation.mybibleexplorer.com</span></div>
+        <div class="shot s-rev"><img src="screenshots/revelation.png" alt="Revelation" onerror="this.remove()" onload="this.parentNode.classList.add('has-img')"><h4>Revelation</h4><p>Make sense of the symbols.</p></div>
+        <div class="cap"><div class="nm">Revelation</div><div class="vt">The Bible's final act</div></div>
+      </a>
+      <a class="frame" href="https://sanctuary.mybibleexplorer.com/#map" aria-hidden="true" tabindex="-1">
+        <div class="chrome"><span class="dots"><i></i><i></i><i></i></span><span class="addr">sanctuary.mybibleexplorer.com</span></div>
+        <div class="shot s-sanc"><img src="screenshots/sanctuary.png" alt="The Sanctuary" onerror="this.remove()" onload="this.parentNode.classList.add('has-img')"><h4>The Sanctuary</h4><p>A blueprint of salvation.</p></div>
+        <div class="cap"><div class="nm">The Sanctuary</div><div class="vt">Hidden in plain sight</div></div>
+      </a>
+      <a class="frame" href="https://lastdayevents.mybibleexplorer.com/index.html" aria-hidden="true" tabindex="-1">
+        <div class="chrome"><span class="dots"><i></i><i></i><i></i></span><span class="addr">lastdayevents.mybibleexplorer.com</span></div>
+        <div class="shot s-last"><img src="screenshots/lastdayevents.png" alt="Last Day Events" onerror="this.remove()" onload="this.parentNode.classList.add('has-img')"><h4>Last Day Events</h4><p>How it all ends&mdash;and how to be ready.</p></div>
+        <div class="cap"><div class="nm">Last Day Events</div><div class="vt">Earth's final chapter</div></div>
+      </a>
+    </div>
+  </div>
+</section>
+<div class="rule-deco"></div>
+ 
+<!-- THE NEED -->
+<section class="band" id="crisis">
+  <div class="wrap">
+    <p class="eyebrow reveal">The need</p>
+    <h2 class="section-head reveal">We own more Bibles than ever. We just don't read them.</h2>
+    <div class="stats">
+      <div class="stat reveal"><div class="num">1 in 7</div><div class="lbl">Half of Americans own a Bible &mdash; but only a sliver read it regularly.</div></div>
+      <div class="stat reveal"><div class="num">&lt;10%</div><div class="lbl">Fewer than one in ten could name the first five books of the Bible.</div></div>
+      <div class="stat reveal"><div class="num">25%</div><div class="lbl">A quarter of churchgoers thought the Golden Rule was one of the Ten Commandments.</div></div>
+    </div>
+    <p class="turn reveal">And yet people aren't indifferent. <strong>More than half of Americans say they wish they read the Bible more.</strong> They sense there's something worth finding &mdash; they just don't know where to start, or whether they'd understand it if they did.</p>
+  </div>
+</section>
+ 
+<!-- CHANGING + ACTS 8 -->
+<section class="band band--olive" id="changing">
+  <div class="wrap">
+    <p class="eyebrow reveal">But something's changing</p>
+    <h2 class="section-head wide reveal">The hunger is coming back.</h2>
+    <p class="lead reveal">Weekly Bible reading just jumped to 42 percent of American adults &mdash; a twelve-point leap in a single year, led by young adults. The question is what happens next. When someone finally opens the Book, will anyone help them make sense of it?</p>
+    <p class="lead reveal">It's an old problem. In Acts, a court official from Ethiopia rides home reading the prophet Isaiah. When Philip asks if he understands it, the man gives one of the most honest answers in all of Scripture:</p>
+    <figure class="scripture reveal"><div class="q">"How can I, unless someone guides me?"</div><div class="ref">Acts 8 &middot; 31</div></figure>
+    <p class="lead reveal" style="margin-top:40px;">So Philip climbed up and sat beside him &mdash; and by the end of that road, everything had changed. That's the gap we exist to fill.</p>
+  </div>
+</section>
+ 
+<!-- MISSION -->
+<section class="band mission" id="mission">
+  <div class="wrap">
+    <p class="eyebrow reveal">Why we're here</p>
+    <h2 class="section-head reveal">Helping you know the Word &mdash; and live it.</h2>
+    <p class="reveal">You really can understand the Bible yourself. It wasn't written for scholars in ivory towers; it was written for shepherds, fishermen, and ordinary people living ordinary lives. So we won't just hand you a list of things to believe &mdash; we'll teach you <em>how to dig</em>: how to read closely, ask good questions, and reach convictions that are truly your own.</p>
+    <p class="reveal">Because knowing the Word is only the start. The whole point is to live it.</p>
+  </div>
+</section>
+ 
+<!-- LIBRARY LIST -->
+<section class="band" id="journeys" style="padding-top:40px;">
+  <div class="wrap">
+    <p class="eyebrow reveal">The library</p>
+    <h2 class="section-head wide reveal">Where would you like to begin?</h2>
+    <p class="lib-note reveal">New studies are added as the library grows &mdash; so check back often.</p>
+    <div class="journeys reveal">
+      <a class="jcard" href="https://hermeneutics.mybibleexplorer.com"><h3>Interpreting the Bible</h3><p>Learn the principles that unlock any passage, so you're never waiting for someone else to tell you what it means.</p><span class="go">Open the guide <span class="arr">&rarr;</span></span></a>
+      <a class="jcard" href="https://psalms.mybibleexplorer.com"><h3>The Psalms</h3><p>The Bible's songbook, where every emotion &mdash; joy, grief, anger, gratitude &mdash; meets God head-on.</p><span class="go">Enter the Psalms <span class="arr">&rarr;</span></span></a>
+      <a class="jcard" href="https://daniel.mybibleexplorer.com"><h3>Daniel</h3><p>Kingdoms rise and fall, and through it all one truth holds: God is still on the throne.</p><span class="go">Begin Daniel <span class="arr">&rarr;</span></span></a>
+      <a class="jcard" href="https://revelation.mybibleexplorer.com/revelation/1/"><h3>Revelation</h3><p>The Bible's final act. Make sense of the symbols and find the hope at the center of it all.</p><span class="go">Unseal Revelation <span class="arr">&rarr;</span></span></a>
+      <a class="jcard" href="https://sanctuary.mybibleexplorer.com/#map"><h3>The Sanctuary</h3><p>A blueprint hidden in plain sight. See how its design tells the whole story of salvation.</p><span class="go">Step inside <span class="arr">&rarr;</span></span></a>
+      <a class="jcard" href="https://lastdayevents.mybibleexplorer.com/index.html"><h3>Last Day Events</h3><p>What does the Bible actually say about how it all ends &mdash; and how do you get ready?</p><span class="go">Look ahead <span class="arr">&rarr;</span></span></a>
+    </div>
+    <p class="lib-more reveal">More journeys on the way.</p>
+  </div>
+</section>
+ 
+<!-- SUGGESTION BOX -->
+<section class="band suggest" id="suggest">
+  <div class="wrap">
+    <p class="eyebrow reveal">Help shape the library</p>
+    <h2 class="section-head reveal">What would you love to study next?</h2>
+    <p class="lead reveal">Is there a book or topic you wish someone would walk you through? This library grows around what people actually want to explore &mdash; so tell us where to dig next.</p>
+    <form class="form reveal" action="https://formsubmit.co/admin@mybibleexplorer.com" method="POST" accept-charset="UTF-8">
+      <input type="hidden" name="_subject" value="My Bible Explorer study suggestion">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_captcha" value="false">
+      <label for="s-name">Your name (optional)</label>
+      <input id="s-name" name="name" type="text" placeholder="Jane">
+      <label for="s-email">Email</label>
+      <input id="s-email" name="email" type="email" placeholder="you@example.com" required>
+      <label for="s-idea">What book, subject, or question should we cover?</label>
+      <textarea id="s-idea" name="suggestion" rows="4" placeholder="I'd love a study on the book of Romans..." required></textarea>
+      <button class="btn btn-primary" type="submit">Send your suggestion</button>
+    </form>
+  </div>
+</section>
+ 
+<!-- DONATE -->
+<section class="band donate" id="donate">
+  <div class="wrap">
+    <p class="eyebrow reveal">Partner with us</p>
+    <h2 class="reveal">Help us keep building.</h2>
+    <p class="reveal">Every journey here is free, and we want to keep it that way. If this work has helped you &mdash; or you simply believe more people should be able to understand the Bible for themselves &mdash; your gift helps us create the next study, and the one after that.</p>
+    <a class="btn reveal" href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&amp;business=admin%40mybibleexplorer.com&amp;item_name=My%20Bible%20Explorer&amp;currency_code=USD" target="_blank" rel="noopener noreferrer">Donate with PayPal</a>
+    <p class="fine reveal">Give once, or walk with us monthly. Every gift goes straight into building the library.</p>
+  </div>
+</section>
+ 
+<!-- CLOSING -->
+<section class="close" id="start">
+  <div class="wrap">
+    <p class="eyebrow reveal">Take the first step</p>
+    <h2 class="reveal">You don't need a degree. Just an open Book.</h2>
+    <p class="reveal">The Word's been waiting for you. Let's explore it together.</p>
+    <a class="btn btn-primary reveal" href="#journeys">Start exploring</a>
+  </div>
+</section>
+ 
+<footer class="mbe-global-footer" data-tool="library">
+  <div class="mbe-shell-wrap mbe-footer-wrap">
+    <a class="mbe-footer-brand" href="https://mybibleexplorer.com">My Bible Explorer</a>
+    <span>Know the Word. Live the Word.</span>
+    <span>To contact, email <a class="mbe-footer-link" href="mailto:admin@mybibleexplorer.com">admin@mybibleexplorer.com</a></span>
+    <a class="mbe-footer-link" href="#donate">Give</a>
+    <span>&copy; <span id="yr"></span> My Bible Explorer</span>
+  </div>
+</footer>
+ 
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+  },{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+  const marquee = document.getElementById('libraryMarquee');
+  const marqueeTrack = marquee?.querySelector('.track');
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let pauseUntil = 0;
+  let lastTick = performance.now();
+  let pointerIsDown = false;
+  let dragging = false;
+  let suppressNextClick = false;
+  let dragStartX = 0;
+  let dragStartLeft = 0;
+
+  const pauseShelf = (ms = 4500) => {
+    pauseUntil = performance.now() + ms;
+  };
+
+  const normalizeShelf = () => {
+    if(!marquee || !marqueeTrack) return;
+    const halfWidth = marqueeTrack.scrollWidth / 2;
+    if(!halfWidth) return;
+    if(marquee.scrollLeft >= halfWidth) marquee.scrollLeft -= halfWidth;
+    if(marquee.scrollLeft < 0) marquee.scrollLeft += halfWidth;
+  };
+
+  const scrollShelf = (direction) => {
+    if(!marquee) return;
+    pauseShelf(5500);
+    const halfWidth = marqueeTrack?.scrollWidth / 2;
+    if(halfWidth && direction < 0 && marquee.scrollLeft < 8) marquee.scrollLeft = halfWidth;
+    if(halfWidth && direction > 0 && marquee.scrollLeft > halfWidth - 8) marquee.scrollLeft = 0;
+    marquee.scrollBy({left:direction * Math.min(430, marquee.clientWidth * .72), behavior:'smooth'});
+    window.setTimeout(normalizeShelf, 500);
+  };
+
+  document.querySelectorAll('[data-shelf-dir]').forEach(button => {
+    button.addEventListener('click', () => scrollShelf(Number(button.dataset.shelfDir)));
+  });
+
+  if(marquee && marqueeTrack){
+    marquee.addEventListener('pointerdown', (event) => {
+      if(event.button !== 0) return;
+      pointerIsDown = true;
+      dragging = false;
+      suppressNextClick = false;
+      dragStartX = event.clientX;
+      dragStartLeft = marquee.scrollLeft;
+      pauseShelf(7000);
+    });
+
+    marquee.addEventListener('pointermove', (event) => {
+      if(!pointerIsDown) return;
+      const distance = event.clientX - dragStartX;
+      if(!dragging && Math.abs(distance) > 10){
+        dragging = true;
+        suppressNextClick = true;
+        marquee.classList.add('is-dragging');
+        marquee.setPointerCapture?.(event.pointerId);
+      }
+      if(!dragging) return;
+      event.preventDefault();
+      marquee.scrollLeft = dragStartLeft - distance;
+      normalizeShelf();
+    });
+
+    const stopDragging = (event) => {
+      pointerIsDown = false;
+      if(dragging){
+        dragging = false;
+        marquee.classList.remove('is-dragging');
+        try{ marquee.releasePointerCapture?.(event.pointerId); }catch(error){}
+        window.setTimeout(() => { suppressNextClick = false; }, 350);
+      }
+    };
+
+    ['pointerup','pointercancel','pointerleave'].forEach(type => {
+      marquee.addEventListener(type, stopDragging);
+    });
+
+    marquee.addEventListener('click', (event) => {
+      if(!suppressNextClick) return;
+      event.preventDefault();
+      event.stopPropagation();
+      suppressNextClick = false;
+    }, true);
+
+    marquee.addEventListener('wheel', (event) => {
+      if(Math.abs(event.deltaX) <= Math.abs(event.deltaY)) return;
+      pauseShelf(3500);
+      window.requestAnimationFrame(normalizeShelf);
+    }, {passive:true});
+
+    marquee.addEventListener('keydown', (event) => {
+      if(event.key !== 'ArrowRight' && event.key !== 'ArrowLeft') return;
+      event.preventDefault();
+      scrollShelf(event.key === 'ArrowRight' ? 1 : -1);
+    });
+
+    if(!reduceMotion){
+      const tick = (now) => {
+        const elapsed = now - lastTick;
+        lastTick = now;
+        const pausedByUser = dragging || marquee.matches(':hover') || marquee.contains(document.activeElement);
+        if(!pausedByUser && now > pauseUntil){
+          marquee.scrollLeft += elapsed * .038;
+          normalizeShelf();
+        }
+        window.requestAnimationFrame(tick);
+      };
+      window.requestAnimationFrame(tick);
+    }
+  }
+</script>
+ 
+</body>
+</html>
+ 
