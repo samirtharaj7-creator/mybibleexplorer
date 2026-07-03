@@ -118,7 +118,7 @@
   .shelf-btn{width:42px;height:42px;border:1px solid var(--rule);border-radius:50%;display:grid;place-items:center;background:rgba(255,253,248,.86);color:var(--olive-deep);box-shadow:0 10px 22px -18px rgba(40,40,30,.65);font-size:1.45rem;line-height:1;cursor:pointer;transition:background .2s ease, border-color .2s ease, transform .18s ease;}
   .shelf-btn:hover{background:#fff;border-color:#c9a44c;transform:translateY(-1px);}
   .shelf-btn:active{transform:translateY(0);}
-  .marquee{position:relative;width:100%;overflow-x:auto;overflow-y:hidden;scroll-behavior:smooth;scrollbar-width:none;-ms-overflow-style:none;cursor:grab;touch-action:pan-y;
+  .marquee{position:relative;width:100%;overflow-x:auto;overflow-y:hidden;scroll-behavior:smooth;scrollbar-width:none;-ms-overflow-style:none;cursor:grab;touch-action:auto;-webkit-overflow-scrolling:touch;overscroll-behavior-inline:contain;
     -webkit-mask-image:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent);
             mask-image:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent);}
   .marquee::-webkit-scrollbar{display:none;}
@@ -534,10 +534,15 @@
  
 <script>
   document.getElementById('yr').textContent = new Date().getFullYear();
-  const io = new IntersectionObserver((entries)=>{
-    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
-  },{threshold:.12});
-  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  const revealEls = document.querySelectorAll('.reveal');
+  if('IntersectionObserver' in window){
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+    },{threshold:.12});
+    revealEls.forEach(el=>io.observe(el));
+  }else{
+    revealEls.forEach(el=>el.classList.add('in'));
+  }
 
   const marquee = document.getElementById('libraryMarquee');
   const marqueeTrack = marquee?.querySelector('.track');
@@ -562,13 +567,27 @@
     if(marquee.scrollLeft < 0) marquee.scrollLeft += halfWidth;
   };
 
+  const setShelfScroll = (left, behavior = 'auto') => {
+    if(!marquee) return;
+    const target = Math.max(0, left);
+    try{
+      if(typeof marquee.scrollTo === 'function'){
+        marquee.scrollTo({left:target, behavior});
+        return;
+      }
+    }catch(error){}
+    marquee.scrollLeft = target;
+  };
+
   const scrollShelf = (direction) => {
     if(!marquee) return;
     pauseShelf(5500);
     const halfWidth = marqueeTrack?.scrollWidth / 2;
-    if(halfWidth && direction < 0 && marquee.scrollLeft < 8) marquee.scrollLeft = halfWidth;
-    if(halfWidth && direction > 0 && marquee.scrollLeft > halfWidth - 8) marquee.scrollLeft = 0;
-    marquee.scrollBy({left:direction * Math.min(430, marquee.clientWidth * .72), behavior:'smooth'});
+    const step = Math.min(430, marquee.clientWidth * .72);
+    let target = marquee.scrollLeft;
+    if(halfWidth && direction < 0 && target < 8) target = halfWidth;
+    if(halfWidth && direction > 0 && target > halfWidth - 8) target = 0;
+    setShelfScroll(target + direction * step, reduceMotion ? 'auto' : 'smooth');
     window.setTimeout(normalizeShelf, 500);
   };
 
@@ -639,7 +658,7 @@
       const tick = (now) => {
         const elapsed = now - lastTick;
         lastTick = now;
-        const pausedByUser = dragging || marquee.matches(':hover') || marquee.contains(document.activeElement);
+        const pausedByUser = dragging || pointerIsDown || marquee.contains(document.activeElement);
         if(!pausedByUser && now > pauseUntil){
           marquee.scrollLeft += elapsed * .038;
           normalizeShelf();
