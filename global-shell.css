@@ -248,31 +248,78 @@ body.mbe-unified-page{--mbe-local-accent:var(--mbe-accent);}
 }
 
 .mbe-global-footer{
-  background:var(--mbe-navy);
-  color:#c8ced8;
+  order:999;
+  background:linear-gradient(180deg,#fffdf8 0%,var(--mbe-ivory) 100%);
+  color:var(--mbe-muted);
   font-family:var(--mbe-font-ui);
+  border-top:1px solid var(--mbe-rule);
+  box-shadow:0 -14px 32px -30px rgba(11,31,58,.42);
+  padding:0;
 }
 
 .mbe-footer-wrap{
-  min-height:96px;
+  min-height:auto;
   display:flex;
   flex-wrap:wrap;
   align-items:center;
   justify-content:space-between;
-  gap:14px 22px;
-  font-size:.9rem;
+  gap:10px clamp(18px,3vw,34px);
+  padding:24px clamp(20px,3vw,42px);
+  font-size:clamp(.86rem,.95vw,.98rem);
+  line-height:1.4;
 }
 
 .mbe-footer-brand{
-  color:#fff;
-  font-family:var(--mbe-font-display);
-  font-size:1.45rem;
-  font-weight:700;
+  display:inline-flex;
+  align-items:center;
+  flex:0 0 auto;
+  color:inherit;
   text-decoration:none;
+  border-bottom:0;
 }
 
-.mbe-footer-link{color:var(--mbe-gold);text-decoration:none;font-weight:700;}
-.mbe-footer-link:hover{text-decoration:underline;}
+.mbe-footer-logo{
+  display:block;
+  width:clamp(168px,16vw,240px);
+  max-width:100%;
+  height:auto;
+}
+
+.mbe-footer-wrap > span:last-child{
+  flex-basis:100%;
+  color:var(--mbe-muted);
+  font-size:clamp(.78rem,.85vw,.9rem);
+}
+
+.mbe-footer-link{
+  color:var(--mbe-gold-dark);
+  text-decoration:none;
+  font-weight:700;
+  border-bottom:1px solid rgba(155,118,40,.45);
+  padding-bottom:2px;
+}
+
+.mbe-footer-link:hover{
+  color:var(--mbe-navy);
+  border-bottom-color:var(--mbe-navy);
+}
+
+body:has(> .mbe-global-footer){
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+}
+
+body:has(> .mbe-global-footer) > main,
+body:has(> .mbe-global-footer) > .mbe-global-footer{
+  min-width:0;
+}
+
+body:has(> .mbe-global-footer) > .mbe-global-footer{
+  order:999;
+  margin-top:auto;
+  flex:0 0 auto;
+}
 
 body[data-mbe-tool="daniel"] header.sticky,
 body[data-mbe-tool="revelation"] .reader-header,
@@ -345,5 +392,5 @@ body[data-mbe-tool="last-day-events"] .page{
   .mbe-brand-logo{width:166px;}
   .mbe-global-nav{width:100%;justify-content:space-between;gap:10px;}
   .mbe-library-panel{left:0;right:auto;width:calc(100vw - 32px);}
-  .mbe-footer-wrap{align-items:flex-start;flex-direction:column;padding-top:24px;padding-bottom:24px;}
+  .mbe-footer-wrap{align-items:flex-start;flex-direction:column;gap:12px;padding:28px 20px;}
 }
