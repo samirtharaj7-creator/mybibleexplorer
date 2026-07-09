@@ -191,8 +191,37 @@
   .stirring-close{margin:46px 0 0;max-width:62ch;color:#f7f3e8;font-size:1.05rem;}
   @media(max-width:760px){.stirring-grid{grid-template-columns:1fr;gap:28px;}}
  
-  .mission p{max-width:60ch;margin-top:22px;}
-  .mission p:first-of-type{margin-top:30px;}
+  .mission{padding:70px 0 64px;}
+  .mission-grid{display:grid;grid-template-columns:minmax(0,.95fr) minmax(320px,.85fr);gap:64px;align-items:start;}
+  .mission-copy p{max-width:58ch;margin-top:22px;}
+  .mission-copy p:first-of-type{margin-top:30px;}
+  .mission-art{position:relative;margin:0;align-self:center;min-height:390px;display:grid;place-items:center;overflow:hidden;}
+  .mission-art::before{content:"";position:absolute;inset:8% 0 0;background:
+    radial-gradient(circle at 50% 48%,rgba(201,164,76,.14) 0 32%,transparent 33%),
+    radial-gradient(circle at 50% 48%,transparent 0 48%,rgba(11,31,58,.08) 49% 50%,transparent 51%),
+    radial-gradient(circle at 50% 48%,transparent 0 66%,rgba(201,164,76,.12) 67% 68%,transparent 69%);
+    opacity:.92;}
+  .study-plate{position:relative;width:min(100%,480px);aspect-ratio:1.12;isolation:isolate;}
+  .study-thread{position:absolute;height:1px;background:linear-gradient(90deg,transparent,rgba(11,31,58,.42),transparent);transform-origin:left center;z-index:1;}
+  .study-thread.t1{left:15%;top:27%;width:58%;transform:rotate(13deg);}
+  .study-thread.t2{left:27%;top:68%;width:54%;transform:rotate(-15deg);}
+  .study-thread.t3{left:31%;top:49%;width:44%;transform:rotate(3deg);opacity:.7;}
+  .study-card{position:absolute;width:120px;height:74px;border:1px solid rgba(155,118,40,.32);border-radius:6px;background:rgba(255,253,248,.82);box-shadow:0 18px 34px -30px rgba(11,31,58,.6);z-index:3;}
+  .study-card::before,.study-card::after{content:"";position:absolute;left:18px;right:18px;height:1px;background:rgba(11,31,58,.28);}
+  .study-card::before{top:27px;box-shadow:0 12px 0 rgba(11,31,58,.2),0 24px 0 rgba(11,31,58,.15);}
+  .study-card::after{top:13px;width:34px;right:auto;background:rgba(201,164,76,.48);}
+  .study-card.c1{left:0;top:8%;transform:rotate(-5deg);}
+  .study-card.c2{right:1%;top:18%;transform:rotate(4deg);}
+  .study-card.c3{right:12%;bottom:2%;transform:rotate(-3deg);}
+  .study-sheet{position:absolute;border:1px solid rgba(155,118,40,.32);border-radius:8px;background:linear-gradient(145deg,#fffdf8 0%,#fff 48%,#f7f3e8 100%);box-shadow:0 24px 50px -40px rgba(11,31,58,.68);z-index:2;}
+  .study-sheet.back{left:17%;top:18%;width:58%;height:58%;transform:rotate(-5deg);opacity:.74;}
+  .study-sheet.front{left:23%;top:14%;width:62%;height:64%;transform:rotate(2deg);overflow:hidden;}
+  .study-lines{position:absolute;left:15%;right:12%;top:22%;bottom:14%;background:repeating-linear-gradient(0deg,rgba(11,31,58,.34) 0 1px,transparent 1px 13px);opacity:.64;}
+  .study-lines::before{content:"";position:absolute;left:0;right:18%;top:28%;height:11px;border-radius:999px;background:rgba(201,164,76,.28);box-shadow:0 52px 0 rgba(47,125,122,.16);}
+  .study-margin{position:absolute;left:8%;top:18%;bottom:16%;width:1px;background:rgba(201,164,76,.42);}
+  .study-margin::before{content:"";position:absolute;left:-4px;top:0;width:9px;height:9px;border-radius:50%;background:var(--brass);box-shadow:0 42px 0 rgba(47,125,122,.68),0 84px 0 rgba(143,79,60,.6),0 126px 0 rgba(63,95,134,.58);}
+  .study-seal{position:absolute;left:48%;bottom:11%;width:74px;height:74px;border:1px solid rgba(155,118,40,.5);border-radius:50%;background:radial-gradient(circle,#fffdf8 0 44%,rgba(201,164,76,.12) 45% 100%);z-index:4;box-shadow:0 20px 34px -30px rgba(11,31,58,.78);}
+  .study-seal::before{content:"";position:absolute;inset:18px;border-top:2px solid rgba(11,31,58,.6);border-bottom:2px solid rgba(11,31,58,.18);transform:rotate(-18deg);}
  
   .library-board{display:grid;grid-template-columns:minmax(300px,.72fr) minmax(0,1.28fr);gap:34px;align-items:start;}
   .library-panel{--path-accent:#6b54b3;--path-tint:rgba(107,84,179,.1);position:relative;display:block;overflow:hidden;border:1px solid var(--rule);border-radius:8px;background:linear-gradient(135deg,#fffdf8 0%,#fff 64%,var(--path-tint) 100%);padding:34px;color:inherit;text-decoration:none;}
@@ -230,6 +259,8 @@
     .path-row{min-height:auto;}
   }
   @media(max-width:900px){
+    .mission-grid,.suggest-grid{grid-template-columns:1fr;gap:34px;}
+    .mission-art{max-width:560px;}
     .library-board{grid-template-columns:1fr;}
     .library-panel .section-head{max-width:14ch;}
     .path-list{grid-template-columns:repeat(2,minmax(0,1fr));}
@@ -238,6 +269,13 @@
     .hero-collage{display:none;}
   }
   @media(max-width:640px){
+    .mission,.suggest{padding:58px 0;}
+    .mission-art{min-height:300px;}
+    .study-plate{width:100%;}
+    .study-card{transform:scale(.86);}
+    .study-card.c1{transform:scale(.82) rotate(-5deg);transform-origin:left top;}
+    .study-card.c2{transform:scale(.82) rotate(4deg);transform-origin:right top;}
+    .study-card.c3{transform:scale(.82) rotate(-3deg);transform-origin:right bottom;}
     .library-panel{padding:28px;}
     .path-list{grid-template-columns:1fr;}
     .path-row{grid-template-columns:40px minmax(0,1fr);gap:16px;padding:22px;}
@@ -245,12 +283,23 @@
   }
  
   /* suggestion box */
-  .suggest{background:var(--parchment-2);}
-  .form{margin-top:34px;max-width:620px;display:flex;flex-direction:column;gap:16px;}
+  .suggest{background:var(--parchment-2);padding:70px 0;}
+  .suggest-grid{display:grid;grid-template-columns:minmax(320px,.82fr) minmax(420px,1fr);gap:58px;align-items:start;}
+  .suggest-prompts{margin-top:30px;display:grid;gap:14px;max-width:560px;}
+  .suggest-prompt{border-top:1px solid var(--rule);padding-top:14px;}
+  .suggest-prompt h3{font-size:1.18rem;}
+  .suggest-prompt p{margin:5px 0 0;color:var(--muted);font-size:.92rem;line-height:1.58;}
+  .form{max-width:none;display:flex;flex-direction:column;gap:16px;}
   .form label{font-family:"Inter",sans-serif;font-size:.82rem;font-weight:600;letter-spacing:.02em;color:var(--olive-deep);margin-bottom:-6px;}
   .form input,.form textarea{font-family:"Inter",sans-serif;font-size:1rem;color:var(--ink);background:#fffdf8;border:1px solid var(--rule);border-radius:4px;padding:13px 15px;width:100%;resize:vertical;}
   .form input:focus,.form textarea:focus{outline:none;border-color:var(--brass);box-shadow:0 0 0 3px rgba(201,164,76,.15);}
   .form .btn{align-self:flex-start;margin-top:6px;}
+  @media(max-width:900px){
+    .suggest-grid{grid-template-columns:1fr;gap:34px;}
+  }
+  @media(max-width:640px){
+    .suggest{padding:58px 0;}
+  }
  
   /* donate */
   .donate{background:var(--olive-deep);color:#f7f3e8;text-align:center;}
@@ -312,14 +361,14 @@
  
 <header class="hero" id="top">
   <div class="hero-collage" aria-hidden="true">
-    <div class="hero-shot"><img src="assets/slide-sanctuary.png" alt=""></div>
-    <div class="hero-shot"><img src="assets/slide-daniel.png" alt=""></div>
-    <div class="hero-shot"><img src="assets/slide-psalms.png" alt=""></div>
-    <div class="hero-shot"><img src="assets/slide-hermeneutics.png" alt=""></div>
-    <div class="hero-shot"><img src="assets/slide-last-day-events.jpg" alt=""></div>
-    <div class="hero-shot"><img src="assets/slide-revelation.jpg" alt=""></div>
-    <div class="hero-shot"><img src="screenshots/romans.png" alt=""></div>
-    <div class="hero-shot"><img src="screenshots/parables.png" alt=""></div>
+    <div class="hero-shot"><img src="screenshots/hermeneutics.png?v=overview1" alt=""></div>
+    <div class="hero-shot"><img src="screenshots/psalms.png?v=overview1" alt=""></div>
+    <div class="hero-shot"><img src="screenshots/parables.png?v=overview1" alt=""></div>
+    <div class="hero-shot"><img src="screenshots/romans.png?v=overview1" alt=""></div>
+    <div class="hero-shot"><img src="screenshots/sanctuary.png?v=overview1" alt=""></div>
+    <div class="hero-shot"><img src="screenshots/daniel.png?v=overview1" alt=""></div>
+    <div class="hero-shot"><img src="screenshots/revelation.png?v=overview1" alt=""></div>
+    <div class="hero-shot"><img src="screenshots/lastdayevents.png?v=overview1" alt=""></div>
   </div>
   <div class="wrap">
     <h1 class="reveal">Learn to read the Bible <em>for yourself.</em></h1>
@@ -348,83 +397,83 @@
       <!-- SET A -->
       <a class="frame" href="https://hermeneutics.mybibleexplorer.com" target="_blank" rel="noopener noreferrer">
         <div class="chrome"><span class="dots"><i></i><i></i><i></i></span><span class="addr">hermeneutics.mybibleexplorer.com</span></div>
-        <div class="shot s-herm"><img src="screenshots/hermeneutics.png" alt="Interpreting the Bible" onerror="this.remove()" onload="this.parentNode.classList.add('has-img')"><h4>Start with the basics</h4><p>Learn how to read carefully.</p></div>
+        <div class="shot s-herm"><img src="screenshots/hermeneutics.png?v=overview1" alt="Interpreting the Bible" onerror="this.remove()" onload="this.parentNode.classList.add('has-img')"><h4>Start with the basics</h4><p>Learn how to read carefully.</p></div>
         <div class="cap"><div class="nm">Interpreting the Bible</div><div class="vt">A simple method for any passage</div></div>
       </a>
       <a class="frame" href="https://psalms.mybibleexplorer.com" target="_blank" rel="noopener noreferrer">
         <div class="chrome"><span class="dots"><i></i><i></i><i></i></span><span class="addr">psalms.mybibleexplorer.com</span></div>
-        <div class="shot s-psalm"><img src="screenshots/psalms.png" alt="The Psalms" onerror="this.remove()" onload="this.parentNode.classList.add('has-img')"><h4>Pray with the Psalms</h4><p>Bring your whole heart to God.</p></div>
+        <div class="shot s-psalm"><img src="screenshots/psalms.png?v=overview1" alt="The Psalms" onerror="this.remove()" onload="this.parentNode.classList.add('has-img')"><h4>Pray with the Psalms</h4><p>Bring your whole heart to God.</p></div>
         <div class="cap"><div class="nm">The Psalms</div><div class="vt">Words for joy, grief, and trust</div></div>
       </a>
       <a class="frame" href="https://parables.mybibleexplorer.com" target="_blank" rel="noopener noreferrer">
         <div class="chrome"><span class="dots"><i></i><i></i><i></i></span><span class="addr">parables.mybibleexplorer.com</span></div>
-        <div class="shot s-parables"><img src="screenshots/parables.png" alt="The Parables of Christ" onerror="this.remove()" onload="this.parentNode.classList.add('has-img')"><h4>Read the parables</h4><p>Trace the stories Jesus told.</p></div>
+        <div class="shot s-parables"><img src="screenshots/parables.png?v=overview1" alt="The Parables of Christ" onerror="this.remove()" onload="this.parentNode.classList.add('has-img')"><h4>Read the parables</h4><p>Trace the stories Jesus told.</p></div>
         <div class="cap"><div class="nm">The Parables of Christ</div><div class="vt">Stories Jesus used to reveal the kingdom</div></div>
       </a>
       <a class="frame" href="https://romans.mybibleexplorer.com" target="_blank" rel="noopener noreferrer">
         <div class="chrome"><span class="dots"><i></i><i></i><i></i></span><span class="addr">romans.mybibleexplorer.com</span></div>
-        <div class="shot s-rom"><img src="screenshots/romans.png?v=reader" alt="Romans" onerror="this.remove()" onload="this.parentNode.classList.add('has-img')"><h4>Open Romans</h4><p>Grace that becomes obedience.</p></div>
+        <div class="shot s-rom"><img src="screenshots/romans.png?v=overview1" alt="Romans" onerror="this.remove()" onload="this.parentNode.classList.add('has-img')"><h4>Open Romans</h4><p>Grace that becomes obedience.</p></div>
         <div class="cap"><div class="nm">Romans</div><div class="vt">Righteousness by faith and life in the Spirit</div></div>
       </a>
       <a class="frame" href="https://daniel.mybibleexplorer.com" target="_blank" rel="noopener noreferrer">
         <div class="chrome"><span class="dots"><i></i><i></i><i></i></span><span class="addr">daniel.mybibleexplorer.com</span></div>
-        <div class="shot s-dan"><img src="screenshots/daniel.png" alt="Daniel" onerror="this.remove()" onload="this.parentNode.classList.add('has-img')"><h4>Walk through Daniel</h4><p>See God steady His people.</p></div>
+        <div class="shot s-dan"><img src="screenshots/daniel.png?v=overview1" alt="Daniel" onerror="this.remove()" onload="this.parentNode.classList.add('has-img')"><h4>Walk through Daniel</h4><p>See God steady His people.</p></div>
         <div class="cap"><div class="nm">Daniel</div><div class="vt">History, prophecy, and courage</div></div>
       </a>
       <a class="frame" href="https://revelation.mybibleexplorer.com/" target="_blank" rel="noopener noreferrer">
         <div class="chrome"><span class="dots"><i></i><i></i><i></i></span><span class="addr">revelation.mybibleexplorer.com</span></div>
-        <div class="shot s-rev"><img src="screenshots/revelation.png" alt="Revelation" onerror="this.remove()" onload="this.parentNode.classList.add('has-img')"><h4>Read Revelation with hope</h4><p>Follow the symbols to Christ.</p></div>
+        <div class="shot s-rev"><img src="screenshots/revelation.png?v=overview1" alt="Revelation" onerror="this.remove()" onload="this.parentNode.classList.add('has-img')"><h4>Read Revelation with hope</h4><p>Follow the symbols to Christ.</p></div>
         <div class="cap"><div class="nm">Revelation</div><div class="vt">Symbols, conflict, and final hope</div></div>
       </a>
       <a class="frame" href="https://sanctuary.mybibleexplorer.com/#structure" target="_blank" rel="noopener noreferrer">
         <div class="chrome"><span class="dots"><i></i><i></i><i></i></span><span class="addr">sanctuary.mybibleexplorer.com</span></div>
-        <div class="shot s-sanc"><img src="screenshots/sanctuary.png" alt="The Sanctuary" onerror="this.remove()" onload="this.parentNode.classList.add('has-img')"><h4>Explore the Sanctuary</h4><p>See the gospel in symbols.</p></div>
+        <div class="shot s-sanc"><img src="screenshots/sanctuary.png?v=overview1" alt="The Sanctuary" onerror="this.remove()" onload="this.parentNode.classList.add('has-img')"><h4>Explore the Sanctuary</h4><p>See the gospel in symbols.</p></div>
         <div class="cap"><div class="nm">The Sanctuary</div><div class="vt">God's plan pictured in detail</div></div>
       </a>
       <a class="frame" href="https://lastdayevents.mybibleexplorer.com/index.html" target="_blank" rel="noopener noreferrer">
         <div class="chrome"><span class="dots"><i></i><i></i><i></i></span><span class="addr">lastdayevents.mybibleexplorer.com</span></div>
-        <div class="shot s-last"><img src="screenshots/lastdayevents.png" alt="Last Day Events" onerror="this.remove()" onload="this.parentNode.classList.add('has-img')"><h4>Follow the final events</h4><p>Clarity without fear.</p></div>
+        <div class="shot s-last"><img src="screenshots/lastdayevents.png?v=overview1" alt="Last Day Events" onerror="this.remove()" onload="this.parentNode.classList.add('has-img')"><h4>Follow the final events</h4><p>Clarity without fear.</p></div>
         <div class="cap"><div class="nm">Last Day Events</div><div class="vt">Hope and readiness for what comes next</div></div>
       </a>
       <!-- SET B (duplicate for seamless loop) -->
       <a class="frame" href="https://hermeneutics.mybibleexplorer.com" target="_blank" rel="noopener noreferrer" aria-hidden="true" tabindex="-1">
         <div class="chrome"><span class="dots"><i></i><i></i><i></i></span><span class="addr">hermeneutics.mybibleexplorer.com</span></div>
-        <div class="shot s-herm"><img src="screenshots/hermeneutics.png" alt="Interpreting the Bible" onerror="this.remove()" onload="this.parentNode.classList.add('has-img')"><h4>Start with the basics</h4><p>Learn how to read carefully.</p></div>
+        <div class="shot s-herm"><img src="screenshots/hermeneutics.png?v=overview1" alt="Interpreting the Bible" onerror="this.remove()" onload="this.parentNode.classList.add('has-img')"><h4>Start with the basics</h4><p>Learn how to read carefully.</p></div>
         <div class="cap"><div class="nm">Interpreting the Bible</div><div class="vt">A simple method for any passage</div></div>
       </a>
       <a class="frame" href="https://psalms.mybibleexplorer.com" target="_blank" rel="noopener noreferrer" aria-hidden="true" tabindex="-1">
         <div class="chrome"><span class="dots"><i></i><i></i><i></i></span><span class="addr">psalms.mybibleexplorer.com</span></div>
-        <div class="shot s-psalm"><img src="screenshots/psalms.png" alt="The Psalms" onerror="this.remove()" onload="this.parentNode.classList.add('has-img')"><h4>Pray with the Psalms</h4><p>Bring your whole heart to God.</p></div>
+        <div class="shot s-psalm"><img src="screenshots/psalms.png?v=overview1" alt="The Psalms" onerror="this.remove()" onload="this.parentNode.classList.add('has-img')"><h4>Pray with the Psalms</h4><p>Bring your whole heart to God.</p></div>
         <div class="cap"><div class="nm">The Psalms</div><div class="vt">Words for joy, grief, and trust</div></div>
       </a>
       <a class="frame" href="https://parables.mybibleexplorer.com" target="_blank" rel="noopener noreferrer" aria-hidden="true" tabindex="-1">
         <div class="chrome"><span class="dots"><i></i><i></i><i></i></span><span class="addr">parables.mybibleexplorer.com</span></div>
-        <div class="shot s-parables"><img src="screenshots/parables.png" alt="The Parables of Christ" onerror="this.remove()" onload="this.parentNode.classList.add('has-img')"><h4>Read the parables</h4><p>Trace the stories Jesus told.</p></div>
+        <div class="shot s-parables"><img src="screenshots/parables.png?v=overview1" alt="The Parables of Christ" onerror="this.remove()" onload="this.parentNode.classList.add('has-img')"><h4>Read the parables</h4><p>Trace the stories Jesus told.</p></div>
         <div class="cap"><div class="nm">The Parables of Christ</div><div class="vt">Stories Jesus used to reveal the kingdom</div></div>
       </a>
       <a class="frame" href="https://romans.mybibleexplorer.com" target="_blank" rel="noopener noreferrer" aria-hidden="true" tabindex="-1">
         <div class="chrome"><span class="dots"><i></i><i></i><i></i></span><span class="addr">romans.mybibleexplorer.com</span></div>
-        <div class="shot s-rom"><img src="screenshots/romans.png?v=reader" alt="Romans" onerror="this.remove()" onload="this.parentNode.classList.add('has-img')"><h4>Open Romans</h4><p>Grace that becomes obedience.</p></div>
+        <div class="shot s-rom"><img src="screenshots/romans.png?v=overview1" alt="Romans" onerror="this.remove()" onload="this.parentNode.classList.add('has-img')"><h4>Open Romans</h4><p>Grace that becomes obedience.</p></div>
         <div class="cap"><div class="nm">Romans</div><div class="vt">Righteousness by faith and life in the Spirit</div></div>
       </a>
       <a class="frame" href="https://daniel.mybibleexplorer.com" target="_blank" rel="noopener noreferrer" aria-hidden="true" tabindex="-1">
         <div class="chrome"><span class="dots"><i></i><i></i><i></i></span><span class="addr">daniel.mybibleexplorer.com</span></div>
-        <div class="shot s-dan"><img src="screenshots/daniel.png" alt="Daniel" onerror="this.remove()" onload="this.parentNode.classList.add('has-img')"><h4>Walk through Daniel</h4><p>See God steady His people.</p></div>
+        <div class="shot s-dan"><img src="screenshots/daniel.png?v=overview1" alt="Daniel" onerror="this.remove()" onload="this.parentNode.classList.add('has-img')"><h4>Walk through Daniel</h4><p>See God steady His people.</p></div>
         <div class="cap"><div class="nm">Daniel</div><div class="vt">History, prophecy, and courage</div></div>
       </a>
       <a class="frame" href="https://revelation.mybibleexplorer.com/" target="_blank" rel="noopener noreferrer" aria-hidden="true" tabindex="-1">
         <div class="chrome"><span class="dots"><i></i><i></i><i></i></span><span class="addr">revelation.mybibleexplorer.com</span></div>
-        <div class="shot s-rev"><img src="screenshots/revelation.png" alt="Revelation" onerror="this.remove()" onload="this.parentNode.classList.add('has-img')"><h4>Read Revelation with hope</h4><p>Follow the symbols to Christ.</p></div>
+        <div class="shot s-rev"><img src="screenshots/revelation.png?v=overview1" alt="Revelation" onerror="this.remove()" onload="this.parentNode.classList.add('has-img')"><h4>Read Revelation with hope</h4><p>Follow the symbols to Christ.</p></div>
         <div class="cap"><div class="nm">Revelation</div><div class="vt">Symbols, conflict, and final hope</div></div>
       </a>
       <a class="frame" href="https://sanctuary.mybibleexplorer.com/#structure" target="_blank" rel="noopener noreferrer" aria-hidden="true" tabindex="-1">
         <div class="chrome"><span class="dots"><i></i><i></i><i></i></span><span class="addr">sanctuary.mybibleexplorer.com</span></div>
-        <div class="shot s-sanc"><img src="screenshots/sanctuary.png" alt="The Sanctuary" onerror="this.remove()" onload="this.parentNode.classList.add('has-img')"><h4>Explore the Sanctuary</h4><p>See the gospel in symbols.</p></div>
+        <div class="shot s-sanc"><img src="screenshots/sanctuary.png?v=overview1" alt="The Sanctuary" onerror="this.remove()" onload="this.parentNode.classList.add('has-img')"><h4>Explore the Sanctuary</h4><p>See the gospel in symbols.</p></div>
         <div class="cap"><div class="nm">The Sanctuary</div><div class="vt">God's plan pictured in detail</div></div>
       </a>
       <a class="frame" href="https://lastdayevents.mybibleexplorer.com/index.html" target="_blank" rel="noopener noreferrer" aria-hidden="true" tabindex="-1">
         <div class="chrome"><span class="dots"><i></i><i></i><i></i></span><span class="addr">lastdayevents.mybibleexplorer.com</span></div>
-        <div class="shot s-last"><img src="screenshots/lastdayevents.png" alt="Last Day Events" onerror="this.remove()" onload="this.parentNode.classList.add('has-img')"><h4>Follow the final events</h4><p>Clarity without fear.</p></div>
+        <div class="shot s-last"><img src="screenshots/lastdayevents.png?v=overview1" alt="Last Day Events" onerror="this.remove()" onload="this.parentNode.classList.add('has-img')"><h4>Follow the final events</h4><p>Clarity without fear.</p></div>
         <div class="cap"><div class="nm">Last Day Events</div><div class="vt">Hope and readiness for what comes next</div></div>
       </a>
     </div>
@@ -473,10 +522,30 @@
 <!-- MISSION -->
 <section class="band mission" id="mission">
   <div class="wrap">
-    <p class="eyebrow reveal">Why this exists</p>
-    <h2 class="section-head reveal">We want to help you read with confidence.</h2>
-    <p class="reveal">You do not need to be a scholar to begin reading the Bible. Most of us just need someone to slow things down, point out what matters, and help us ask better questions without feeling lost.</p>
-    <p class="reveal">That is what these resources are for: to make Scripture easier to approach, easier to understand, and easier to live.</p>
+    <div class="mission-grid">
+      <div class="mission-copy">
+        <p class="eyebrow reveal">Why this exists</p>
+        <h2 class="section-head reveal">We want to help you read with confidence.</h2>
+        <p class="reveal">You do not need to be a scholar to begin reading the Bible. Most of us just need someone to slow things down, point out what matters, and help us ask better questions without feeling lost.</p>
+        <p class="reveal">That is what these resources are for: to make Scripture easier to approach, easier to understand, and easier to live.</p>
+      </div>
+      <figure class="mission-art reveal" aria-label="Layered passage study illustration">
+        <div class="study-plate" aria-hidden="true">
+          <span class="study-thread t1"></span>
+          <span class="study-thread t2"></span>
+          <span class="study-thread t3"></span>
+          <span class="study-card c1"></span>
+          <span class="study-card c2"></span>
+          <span class="study-card c3"></span>
+          <div class="study-sheet back"></div>
+          <div class="study-sheet front">
+            <span class="study-margin"></span>
+            <span class="study-lines"></span>
+          </div>
+          <span class="study-seal"></span>
+        </div>
+      </figure>
+    </div>
   </div>
 </section>
  
@@ -508,21 +577,35 @@
 <!-- SUGGESTION BOX -->
 <section class="band suggest" id="suggest">
   <div class="wrap">
-    <p class="eyebrow reveal">Help us build what helps</p>
-    <h2 class="section-head reveal">What should we study next?</h2>
-    <p class="lead reveal">Is there a book, chapter, or question you wish someone would walk through with you? Tell us what would help, and we will keep building around real questions from real readers.</p>
-    <form class="form reveal" action="https://formsubmit.co/admin@mybibleexplorer.com" method="POST" accept-charset="UTF-8">
-      <input type="hidden" name="_subject" value="My Bible Explorer study suggestion">
-      <input type="hidden" name="_template" value="table">
-      <input type="hidden" name="_captcha" value="false">
-      <label for="s-name">Your name (optional)</label>
-      <input id="s-name" name="name" type="text" placeholder="Jane">
-      <label for="s-email">Email</label>
-      <input id="s-email" name="email" type="email" placeholder="you@example.com" required>
-      <label for="s-idea">What book, subject, or question should we cover?</label>
-      <textarea id="s-idea" name="suggestion" rows="4" placeholder="I'd love a study on the book of Romans..." required></textarea>
-      <button class="btn btn-primary" type="submit">Send suggestion</button>
-    </form>
+    <div class="suggest-grid">
+      <div>
+        <p class="eyebrow reveal">Help us build what helps</p>
+        <h2 class="section-head reveal">What should we study next?</h2>
+        <p class="lead reveal">Is there a book, chapter, or question you wish someone would walk through with you? Tell us what would help, and we will keep building around real questions from real readers.</p>
+        <div class="suggest-prompts reveal" aria-label="Helpful suggestion examples">
+          <div class="suggest-prompt">
+            <h3>A book of the Bible</h3>
+            <p>Tell us which book feels confusing, timely, or worth exploring next.</p>
+          </div>
+          <div class="suggest-prompt">
+            <h3>A difficult passage</h3>
+            <p>Send the chapter, verse, or question you wish had a slower explanation.</p>
+          </div>
+        </div>
+      </div>
+      <form class="form reveal" action="https://formsubmit.co/admin@mybibleexplorer.com" method="POST" accept-charset="UTF-8">
+        <input type="hidden" name="_subject" value="My Bible Explorer study suggestion">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_captcha" value="false">
+        <label for="s-name">Your name (optional)</label>
+        <input id="s-name" name="name" type="text" placeholder="Jane">
+        <label for="s-email">Email</label>
+        <input id="s-email" name="email" type="email" placeholder="you@example.com" required>
+        <label for="s-idea">What book, subject, or question should we cover?</label>
+        <textarea id="s-idea" name="suggestion" rows="4" placeholder="I'd love a study on the book of Romans..." required></textarea>
+        <button class="btn btn-primary" type="submit">Send suggestion</button>
+      </form>
+    </div>
   </div>
 </section>
  
