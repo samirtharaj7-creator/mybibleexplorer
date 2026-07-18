@@ -1,0 +1,303 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-07-18T15:43:09Z",
+  "scope": {
+    "domains": 18,
+    "canonicalRoutes": 385,
+    "applicationStates": 394,
+    "urlStates": 165,
+    "interactiveStates": 229,
+    "browserUrlsPerViewport": 550,
+    "excludedDuplicateDirectories": [
+      "Daniel copy",
+      "parables copy",
+      "sanctuaryexplorer_fresh"
+    ]
+  },
+  "acceptance": {
+    "registry": "pass",
+    "nativeChecks": "pass",
+    "localCrawl": "pass",
+    "productionHttpCrawl": "pass",
+    "desktopBrowserCrawl": "pass",
+    "mobileBrowserCrawl": "pass",
+    "interactiveStateAudit": "pass",
+    "editorialReview": "pass-with-deferred-exception",
+    "theologyReview": "pass-with-deferred-exception",
+    "screenshots": "pass",
+    "https": "pass",
+    "finalHubDeployment": "awaiting-ledger-commit"
+  },
+  "validationTotals": {
+    "reviewedStructuredVerses": 2018,
+    "canonicalScriptureReferences": 12020,
+    "authoredStringsTheologyChecked": 52700,
+    "authoredStringsProseChecked": 96154,
+    "staticPagesProseChecked": 238,
+    "doctrinalSafeguards": 11,
+    "desktopBrowserUrls": 550,
+    "mobileBrowserUrls": 550,
+    "psalmStates": 150,
+    "psalmCardsPerState": 9,
+    "parableStates": 61,
+    "sanctuaryStates": 18,
+    "deckScreenshots": 17,
+    "deckScreenshotBytes": 5429045,
+    "externalServiceUrlsCheckedWithoutSubmission": 8
+  },
+  "deferredException": {
+    "site": "philippians",
+    "content": "Philippians 4:1-23 commentary",
+    "records": 23,
+    "owner": "user",
+    "status": "placeholder/editorial review deferred",
+    "certified": false,
+    "sha256": "03193f398e8a6a43e09e42567470dbebf51d9a3e621135e6a57582abb4562e53",
+    "technicalShellTested": true,
+    "note": "No audit repair authored, rewrote, or changed these commentary fields."
+  },
+  "editorialAndTheology": {
+    "language": "American English",
+    "preservedForms": ["KJV wording", "quotations", "Greek and Hebrew forms", "proper names"],
+    "primaryAuthority": "Scripture",
+    "denominationalBaseline": "https://www.adventist.org/beliefs/",
+    "interpretiveBaseline": "https://www.adventistbiblicalresearch.org/materials/methods-of-bible-study/",
+    "secondaryEvidence": ["official GC/BRI statements", "SDABC", "Ellen White", "Adventist scholarship"],
+    "focusedSafeguards": [
+      "Christology",
+      "salvation",
+      "law and Sabbath",
+      "sanctuary and judgment",
+      "1844",
+      "death and resurrection",
+      "creation",
+      "remnant identity",
+      "prophecy",
+      "spiritual gifts",
+      "last-day events"
+    ],
+    "privateEvidencePublished": false
+  },
+  "browserAndAccessibility": {
+    "desktop": {"width": 1280, "height": 720, "urls": 550, "status": "pass"},
+    "mobile": {"width": 390, "height": 844, "urls": 550, "status": "pass"},
+    "standard": "WCAG 2.2 A/AA",
+    "checks": [
+      "valid final HTTPS URL",
+      "nonblank title and rendered content",
+      "document language",
+      "one visible primary heading",
+      "horizontal overflow",
+      "duplicate IDs",
+      "images and alternatives",
+      "accessible control names and labels",
+      "iframe titles",
+      "same-page fragments",
+      "console errors and failed application requests",
+      "normal and large-text contrast",
+      "minimum control target or spacing exception",
+      "keyboard activation and visible focus",
+      "menus, tabs, disclosures, search, filters, history, and responsive controls"
+    ],
+    "automatedEngineNote": "The in-app browser blocked third-party axe-core injection. The final acceptance used equivalent rendered-DOM A/AA checks, computed contrast/target audits, and manual keyboard/focus interaction review.",
+    "unwaivedViolations": 0
+  },
+  "screenshots": {
+    "manifest": "qa/deck-screenshots.json",
+    "capture": "17 distinct optimized 1280x720 PNG files",
+    "cardReview": "340x188 top-centered cover crop",
+    "fullFramesInspected": true,
+    "cardCropsInspected": true,
+    "cacheVersion": "qa20260718",
+    "status": "pass"
+  },
+  "domains": [
+    {
+      "id": "hub",
+      "domain": "mybibleexplorer.com",
+      "routes": 1,
+      "states": 0,
+      "headBeforeLedger": "3e3d2b5b5050eccc841ac4fa84f313c60b0df9a1",
+      "repair": "Family QA registry, validators, contrast correction, screenshot dimensions/loading/cache versions, and final audit ledger.",
+      "status": "pass"
+    },
+    {
+      "id": "christ",
+      "domain": "christ.mybibleexplorer.com",
+      "routes": 1,
+      "states": 85,
+      "head": "a6381c16e5c1a0a3ec2d066ee0ee0229525a8b6e",
+      "repairCommits": ["a6381c1"],
+      "repair": "Mobile navigation target size and visible keyboard focus.",
+      "deployment": "GitHub Pages; Sites metadata preserved; no Sites release or DNS change.",
+      "status": "pass"
+    },
+    {
+      "id": "colossians",
+      "domain": "colossians.mybibleexplorer.com",
+      "routes": 7,
+      "states": 0,
+      "head": "8f1eb2c54012194ca628ce487ad67b36c801b8e6",
+      "repairCommits": ["8f1eb2c"],
+      "repair": "Removed the erroneous Hebrews-derived importer, added cross-book import safeguards, and completed source/content review.",
+      "status": "pass"
+    },
+    {
+      "id": "corinthians",
+      "domain": "corinthians.mybibleexplorer.com",
+      "routes": 31,
+      "states": 0,
+      "head": "808f4970a2df18cdc5cc66f9323d27de14efceed",
+      "repairCommits": ["808f497"],
+      "repair": "Content, metadata, reference, build, and deployment-artifact validation repairs.",
+      "status": "pass"
+    },
+    {
+      "id": "daniel",
+      "domain": "daniel.mybibleexplorer.com",
+      "routes": 53,
+      "states": 0,
+      "head": "b39110227f3dd356a923acac7c93bb086121dc00",
+      "repairCommits": ["88b5d96", "c680f3f", "6b710b8", "15992ac", "0977866", "b391102"],
+      "repair": "Validation manifest and H1 repairs; SSR/client symbol-shape hydration repair; hydrated DOM gating; immutable prior-chunk compatibility for cached HTML.",
+      "status": "pass"
+    },
+    {
+      "id": "ephesians",
+      "domain": "ephesians.mybibleexplorer.com",
+      "routes": 9,
+      "states": 0,
+      "head": "f6d7a13ae8e9830bdb6e92d85efcb3cc2db33dd7",
+      "repairCommits": ["f6d7a13"],
+      "repair": "Completed source review, prose/reference checks, and deployment validation.",
+      "status": "pass"
+    },
+    {
+      "id": "galatians",
+      "domain": "galatians.mybibleexplorer.com",
+      "routes": 9,
+      "states": 0,
+      "head": "b904ca57ada7dc5d9db3ea75a5baccd43adea79c",
+      "repairCommits": ["b904ca5"],
+      "repair": "Content, theology, reference, and build validation repairs.",
+      "status": "pass"
+    },
+    {
+      "id": "hebrews",
+      "domain": "hebrews.mybibleexplorer.com",
+      "routes": 31,
+      "states": 0,
+      "head": "519051d335d4be6f8da20d8accd035a9d24dce80",
+      "repairCommits": ["519051d"],
+      "repair": "Content, theology, reference, type, lint, and build corrections.",
+      "status": "pass"
+    },
+    {
+      "id": "hermeneutics",
+      "domain": "hermeneutics.mybibleexplorer.com",
+      "routes": 22,
+      "states": 0,
+      "head": "1703dba81bac13f537f8695651a4819717ee9d03",
+      "repairCommits": ["eab26c8", "a4301d4", "1703dba"],
+      "repair": "Removed production Tailwind warning, repaired five accessible form labels, sanitized generated artifacts, and added production regressions.",
+      "status": "pass"
+    },
+    {
+      "id": "isaiah",
+      "domain": "isaiah.mybibleexplorer.com",
+      "routes": 86,
+      "states": 0,
+      "head": "4886c7fea0a62304bbd3a74b617ae4940ce33015",
+      "repairCommits": [],
+      "repair": "No source change required; all existing content, humanization, route, asset, browser, and production checks passed.",
+      "status": "pass"
+    },
+    {
+      "id": "james",
+      "domain": "james.mybibleexplorer.com",
+      "routes": 8,
+      "states": 0,
+      "head": "4318989059dc842a7a5c0e825a8601e3a680ab67",
+      "repairCommits": ["4318989"],
+      "repair": "Content, theology, reference, type, lint, build, and deploy-artifact corrections.",
+      "status": "pass"
+    },
+    {
+      "id": "lastdayevents",
+      "domain": "lastdayevents.mybibleexplorer.com",
+      "routes": 9,
+      "states": 80,
+      "head": "296d88314d259942f694d7d94b61b69af310941d",
+      "repairCommits": ["d9d7d49", "296d883"],
+      "repair": "State/content/deployment repairs and AA muted-text contrast correction with asset cache bump.",
+      "status": "pass"
+    },
+    {
+      "id": "parables",
+      "domain": "parables.mybibleexplorer.com",
+      "routes": 1,
+      "states": 61,
+      "head": "82e3fa7c0c6e421fca3b4eaa9dcb879db1d1ed9f",
+      "repairCommits": ["ca8efb2", "82e3fa7"],
+      "repair": "American-English title, announced/focused article changes, focus parity, current-result state, and 24px mobile brand target.",
+      "status": "pass"
+    },
+    {
+      "id": "philippians",
+      "domain": "philippians.mybibleexplorer.com",
+      "routes": 7,
+      "states": 0,
+      "head": "3792c968458affe2fa6bc3177fea02ba4ba7773d",
+      "repairCommits": ["3792c96"],
+      "repair": "GitHub Pages custom-domain/TLS repair, HTTPS enforcement, technical shell and validator repairs. Philippians 4 commentary untouched.",
+      "status": "pass-with-deferred-exception"
+    },
+    {
+      "id": "psalms",
+      "domain": "psalms.mybibleexplorer.com",
+      "routes": 1,
+      "states": 150,
+      "head": "57981d84514594596f8aa1fa094d4b22b3c4e483",
+      "repairCommits": ["523f88f", "57981d8"],
+      "repair": "Replaced runtime Tailwind/Babel compilation with pinned checked-in assets; repaired labels, pressed states, live validation, semantic navigation, and decorative charts.",
+      "status": "pass"
+    },
+    {
+      "id": "revelation",
+      "domain": "revelation.mybibleexplorer.com",
+      "routes": 62,
+      "states": 0,
+      "head": "e90d5fdf968874ea264338c0244fdfcbe3c978ff",
+      "repairCommits": ["d6b8e66", "67c0dfb", "fb6891c", "e90d5fd"],
+      "repair": "Validation manifest, primary headings, introduction overflow, and long mobile article-H1 wrapping with cache-safe generated assets.",
+      "status": "pass"
+    },
+    {
+      "id": "romans",
+      "domain": "romans.mybibleexplorer.com",
+      "routes": 46,
+      "states": 0,
+      "head": "3d147db6e4dfe080ab2f21ce919665c860db73ba",
+      "repairCommits": ["722df05", "3d147db"],
+      "repair": "Hydration-safe server/client shell alignment, cache-safe static artifacts, and source/agreement/natural-flow/gospel regressions.",
+      "status": "pass"
+    },
+    {
+      "id": "sanctuary",
+      "domain": "sanctuary.mybibleexplorer.com",
+      "routes": 1,
+      "states": 18,
+      "head": "b84b7d72f529f71e1ca568da11f4c1d89c4c65f6",
+      "repairCommits": ["b84b7d7"],
+      "repair": "Truthful pressed states, group semantics, preserved focus, described 3D canvas, live guided captions, and 18-state accessibility regression coverage.",
+      "status": "pass"
+    }
+  ],
+  "thirdPartyAndPrivateLimitations": [
+    "The suggestion form and donation destination were validated for reachability and client-side validation without transmitting a form or money.",
+    "Psalms chart summaries and Sanctuary/Parables visual canvases have equivalent accessible controls; the redundant visual picking surfaces are not separate keyboard targets.",
+    "Psalms selections are session state rather than bookmarkable URL states.",
+    "The private James overlap corpus was unavailable; public content, citations, references, theology, and deploy artifacts passed, and no private evidence was exposed.",
+    "The private Romans source mapping was available and passed agreement validation."
+  ]
+}

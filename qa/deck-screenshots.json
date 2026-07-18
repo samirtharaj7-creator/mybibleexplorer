@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "capture": {
+    "width": 1280,
+    "height": 720,
+    "cardWidth": 340,
+    "cardHeight": 188,
+    "format": "png",
+    "cardFit": "cover",
+    "cardPosition": "top center",
+    "waitAfterLoadMs": 1300,
+    "capturedAt": "2026-07-18T15:43:09Z"
+  },
+  "screenshots": [
+    {"id":"hermeneutics","file":"screenshots/hermeneutics.png","url":"https://hermeneutics.mybibleexplorer.com/","bytes":168016,"sha256":"70f7ba78dd640fb91e62415812e7fbe73ffe4e64e72e9a5a7a65f9b5660e1bcd"},
+    {"id":"psalms","file":"screenshots/psalms.png","url":"https://psalms.mybibleexplorer.com/","bytes":164483,"sha256":"795b2774df497cc9df67e3e7a1348ebeb9922bf07b53ee8b5785f1929f71eca1"},
+    {"id":"sanctuary","file":"screenshots/sanctuary.png","url":"https://sanctuary.mybibleexplorer.com/","bytes":200104,"sha256":"afba8167f125cc911b85780b5fa9fcb91401908f629097b7d052df0496b28697"},
+    {"id":"lastdayevents","file":"screenshots/lastdayevents.png","url":"https://lastdayevents.mybibleexplorer.com/","bytes":98304,"sha256":"97b228792e77c2a81f23842de1c08b6621ef51056783cdac37e2859355a18e93"},
+    {"id":"parables","file":"screenshots/parables.png","url":"https://parables.mybibleexplorer.com/","bytes":144001,"sha256":"dea82f173202f268a4593ba6a08220daf24e9bb18183c1572d67d57acf3b53fd"},
+    {"id":"romans","file":"screenshots/romans.png","url":"https://romans.mybibleexplorer.com/","bytes":418350,"sha256":"f1e0c374f9f150e070ac1100cb329c31864c61440df3dab45bcf4ebc9144170c"},
+    {"id":"corinthians","file":"screenshots/corinthians.png","url":"https://corinthians.mybibleexplorer.com/","bytes":422925,"sha256":"14f180177af11d70e9b5a4556139c08c9460b57e5e1c675117662386473915b2"},
+    {"id":"galatians","file":"screenshots/galatians.png","url":"https://galatians.mybibleexplorer.com/","bytes":411514,"sha256":"1ad2fef8391e6b1711ffe1011094d8d8bf987a7bf7b3e1187a812ef954f642e7"},
+    {"id":"ephesians","file":"screenshots/ephesians.png","url":"https://ephesians.mybibleexplorer.com/","bytes":414666,"sha256":"046d75bd9abe8458f388c080ac50899a217d644f0ac9e29c5abc6d0320fcd035"},
+    {"id":"philippians","file":"screenshots/philippians.png","url":"https://philippians.mybibleexplorer.com/","bytes":418656,"sha256":"53ce74b79450b529d69bc9d1d149a3aa9559e97beb714884b71da4a433b03a11"},
+    {"id":"colossians","file":"screenshots/colossians.png","url":"https://colossians.mybibleexplorer.com/","bytes":422494,"sha256":"e2c5767aa803536bb04ff4dccbbaa68eb15e028f7ae8b74736ffff1e11695d92"},
+    {"id":"hebrews","file":"screenshots/hebrews.png","url":"https://hebrews.mybibleexplorer.com/","bytes":427281,"sha256":"361abd76aad32871adaf6bed5c42654a64126bc019fac6d2927a6cdbe5591081"},
+    {"id":"james","file":"screenshots/james.png","url":"https://james.mybibleexplorer.com/","bytes":384633,"sha256":"d24b10eabe223faf72b319a79a91da5c201b1a7725726bf87574841b47589b8d"},
+    {"id":"isaiah","file":"screenshots/isaiah.png","url":"https://isaiah.mybibleexplorer.com/","bytes":356500,"sha256":"319017189d84fd7745853cd6ba45d19f20092e7a1872f3cf49913f3cef31c7dc"},
+    {"id":"daniel","file":"screenshots/daniel.png","url":"https://daniel.mybibleexplorer.com/","bytes":389420,"sha256":"7dd25887ecd0c2969497b88ee2ca47b1bc75c82d4b58189147bd8fc9e3cf8a71"},
+    {"id":"revelation","file":"screenshots/revelation.png","url":"https://revelation.mybibleexplorer.com/","bytes":444086,"sha256":"a5b8578aae76c2fbfe03ffb54cb019196c623367f1f13362853df7880b749fcd"},
+    {"id":"christ","file":"screenshots/christ.png","url":"https://christ.mybibleexplorer.com/","bytes":143612,"sha256":"2a9e517d24e87219670daad6723c39d0ecfd519df6eb1bc9dfb1ce0aae895d6f"}
+  ]
+}

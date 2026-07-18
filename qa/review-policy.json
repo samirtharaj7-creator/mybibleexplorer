@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 1,
+  "language": "en-US",
+  "preserveVerbatim": [
+    "KJV Scripture text",
+    "properly attributed quotations",
+    "Greek and Hebrew forms",
+    "proper names"
+  ],
+  "interpretiveOrder": [
+    {
+      "rank": 1,
+      "authority": "Scripture",
+      "role": "primary norm"
+    },
+    {
+      "rank": 2,
+      "authority": "Seventh-day Adventist 28 Fundamental Beliefs",
+      "url": "https://www.adventist.org/beliefs/",
+      "role": "current denominational baseline"
+    },
+    {
+      "rank": 3,
+      "authority": "Methods of Bible Study",
+      "url": "https://www.adventistbiblicalresearch.org/materials/methods-of-bible-study/",
+      "role": "voted interpretive controls"
+    },
+    {
+      "rank": 4,
+      "authority": "official GC and Biblical Research Institute statements",
+      "role": "topic-specific denominational guidance"
+    },
+    {
+      "rank": 5,
+      "authority": "SDABC, Ellen G. White, and Adventist scholarship",
+      "role": "secondary evidence subordinate to Scripture"
+    }
+  ],
+  "requiredSafeguards": [
+    "christ-full-divinity-and-humanity",
+    "salvation-by-grace-not-merit",
+    "law-and-sabbath-distinctions",
+    "cross-complete-and-sanctuary-ministry",
+    "1844-christ-centered-judgment",
+    "conditional-immortality-and-resurrection",
+    "six-day-creation",
+    "remnant-mission-without-exclusive-salvation",
+    "historicist-prophecy-with-qualified-alternatives",
+    "spiritual-gifts-subordinate-to-scripture",
+    "no-date-setting-or-conspiracy-certainty"
+  ],
+  "philippians4": {
+    "owner": "user",
+    "verses": 23,
+    "technicalValidationRequired": true,
+    "editorialOrTheologicalCertification": false,
+    "reason": "Explicitly deferred for the user to complete and review"
+  },
+  "publicDisclosureRequired": false,
+  "privateResearchMustRemainPrivate": true
+}

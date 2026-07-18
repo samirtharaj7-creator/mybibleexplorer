@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "standard": "WCAG 2.2 A/AA",
+  "viewports": [
+    {"id": "desktop", "width": 1280, "height": 720},
+    {"id": "mobile", "width": 390, "height": 844}
+  ],
+  "everyRoute": [
+    "https-final-url",
+    "nonblank-title",
+    "document-language",
+    "rendered-body-content",
+    "primary-heading",
+    "horizontal-overflow",
+    "duplicate-id",
+    "loaded-images",
+    "image-alternatives",
+    "named-links-and-buttons",
+    "labeled-form-controls",
+    "titled-iframes",
+    "valid-local-fragments",
+    "uncaught-console-errors"
+  ],
+  "uniqueLayoutAutomated": [
+    "minimum-control-target",
+    "text-color-contrast"
+  ],
+  "uniqueLayoutManualChecks": [
+    "keyboard-only-navigation",
+    "visible-focus",
+    "logical-focus-order",
+    "mobile-menu-open-close",
+    "tabs-and-disclosure-controls",
+    "search-and-filter-results",
+    "modal-open-close-and-focus-return",
+    "theme-and-font-controls",
+    "history-hash-and-query-routing",
+    "form-validation-without-submission"
+  ],
+  "contrast": {
+    "normalText": 4.5,
+    "largeText": 3,
+    "largeTextPx": 24,
+    "largeBoldTextPx": 18.66
+  },
+  "temporaryThirdPartyTool": {
+    "name": "axe-core",
+    "version": "4.10.3",
+    "sha256": "880970c081707360e64f34cea25ff91892f5bc95675b0776925b9709dd8a68bb",
+    "note": "The in-app browser blocks script injection, so the final run records WCAG-aligned rendered-DOM checks plus manual keyboard/focus review rather than embedding this downloaded engine in a public site."
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "name": "my-bible-explorer-family-qa",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "qa:registry": "node scripts/validate-qa-registry.mjs",
+    "qa:inventory": "node scripts/audit-family.mjs --mode inventory",
+    "qa:local": "node scripts/audit-family.mjs --mode local",
+    "qa:production": "node scripts/audit-family.mjs --mode production",
+    "qa:external": "node scripts/audit-external-links.mjs",
+    "qa:all": "node scripts/audit-family.mjs --mode all",
+    "qa:screenshots": "node scripts/validate-deck-screenshots.mjs",
+    "qa:content": "node scripts/validate-family-content.mjs",
+    "qa:prose": "node scripts/audit-family-prose.mjs",
+    "qa:theology": "node scripts/validate-theology-baseline.mjs",
+    "qa:placeholders": "node scripts/audit-public-placeholders.mjs",
+    "qa:ledger": "node scripts/validate-audit-ledger.mjs",
+    "check": "npm run qa:registry && npm run qa:inventory && npm run qa:local && npm run qa:screenshots && npm run qa:content && npm run qa:prose && npm run qa:theology && npm run qa:placeholders && npm run qa:ledger"
+  }
+}

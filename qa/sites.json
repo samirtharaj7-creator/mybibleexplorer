@@ -1,0 +1,233 @@
+{
+  "schemaVersion": 1,
+  "familyRoot": "..",
+  "deploymentDefaults": {
+    "provider": "github-pages",
+    "branch": "main",
+    "httpsRequired": true
+  },
+  "excludedDuplicateDirectories": [
+    "Daniel copy",
+    "parables copy",
+    "sanctuaryexplorer_fresh"
+  ],
+  "externalAllowlist": [
+    "fonts.googleapis.com",
+    "fonts.gstatic.com",
+    "formsubmit.co",
+    "link.apisystem.tech",
+    "cdn.tailwindcss.com",
+    "esm.sh",
+    "unpkg.com",
+    "cdn.jsdelivr.net",
+    "bible-api.com"
+  ],
+  "sites": [
+    {
+      "id": "hub",
+      "domain": "mybibleexplorer.com",
+      "repo": "mybibleexplorer",
+      "artifactRoot": ".",
+      "stack": "static-html",
+      "build": [],
+      "routeSeeds": ["/"],
+      "validate": ["node scripts/validate-deck-screenshots.mjs"]
+    },
+    {
+      "id": "christ",
+      "domain": "christ.mybibleexplorer.com",
+      "repo": "Christ",
+      "artifactRoot": ".",
+      "stack": "static-spa",
+      "build": [],
+      "routeSeeds": ["/"],
+      "clientGeneratedFragments": true,
+      "deployment": {"preserveSitesMetadata": true, "publishWithSites": false},
+      "stateAudit": {"kind": "christ-scenes", "source": "index.html"}
+    },
+    {
+      "id": "colossians",
+      "domain": "colossians.mybibleexplorer.com",
+      "repo": "Colossians",
+      "artifactRoot": "out",
+      "stack": "next-static-export",
+      "build": ["npm run build"],
+      "routeSeeds": ["/", "/colossians/1/"],
+      "validate": ["npm run validate", "npm run audit:humanization", "npm run typecheck", "npm run lint", "npm run build"]
+    },
+    {
+      "id": "corinthians",
+      "domain": "corinthians.mybibleexplorer.com",
+      "repo": "Corinthians",
+      "artifactRoot": "out",
+      "stack": "next-static-export",
+      "build": ["npm run build"],
+      "routeSeeds": ["/", "/1-corinthians/1/", "/2-corinthians/1/"],
+      "clientGeneratedFragments": true,
+      "validate": ["npm run validate:background", "npm run validate:corinthians", "npm run validate:theology", "npm run validate:humanization", "npm run typecheck", "npm run lint", "npm run build"]
+    },
+    {
+      "id": "daniel",
+      "domain": "daniel.mybibleexplorer.com",
+      "repo": "Daniel",
+      "artifactRoot": ".",
+      "stack": "prebuilt-next-export",
+      "build": [],
+      "routeSeeds": ["/", "/chapters/1/", "/articles/"],
+      "validate": [
+        "node scripts/sync-daniel-hydration.mjs --check",
+        "node scripts/audit-daniel-humanization.mjs",
+        "node scripts/validate-daniel-theological-pass.mjs"
+      ]
+    },
+    {
+      "id": "ephesians",
+      "domain": "ephesians.mybibleexplorer.com",
+      "repo": "Ephesians",
+      "artifactRoot": "out",
+      "stack": "next-static-export",
+      "build": ["npm run build"],
+      "routeSeeds": ["/", "/ephesians/1/"],
+      "clientGeneratedFragments": true,
+      "validate": ["npm run deploy:check"]
+    },
+    {
+      "id": "galatians",
+      "domain": "galatians.mybibleexplorer.com",
+      "repo": "Galatians",
+      "artifactRoot": "out",
+      "stack": "next-static-export",
+      "build": ["npm run build"],
+      "routeSeeds": ["/", "/galatians/1/"],
+      "clientGeneratedFragments": true,
+      "validate": ["npm run check"]
+    },
+    {
+      "id": "hebrews",
+      "domain": "hebrews.mybibleexplorer.com",
+      "repo": "Hebrews",
+      "artifactRoot": "out",
+      "stack": "next-static-export",
+      "build": ["npm run build"],
+      "routeSeeds": ["/", "/hebrews/1/"],
+      "clientGeneratedFragments": true,
+      "validate": ["npm run validate", "npm run typecheck", "npm run lint", "npm run build"]
+    },
+    {
+      "id": "hermeneutics",
+      "domain": "hermeneutics.mybibleexplorer.com",
+      "repo": "newhermeneutics",
+      "artifactRoot": ".",
+      "stack": "generated-static-routes",
+      "build": [],
+      "routeSeeds": ["/", "/step-1/", "/examples/"],
+      "validate": [
+        "node scripts/sanitize-tailwind-runtime.mjs --check",
+        "node scripts/validate-production-repairs.mjs",
+        "node --check mbe-unified.js"
+      ]
+    },
+    {
+      "id": "isaiah",
+      "domain": "isaiah.mybibleexplorer.com",
+      "repo": "Isaiah",
+      "artifactRoot": ".",
+      "stack": "generated-static-html",
+      "build": [],
+      "routeSeeds": ["/", "/chapters/1.html", "/commentary/1/1.html"],
+      "validate": ["node scripts/audit-commentary-humanization.mjs"]
+    },
+    {
+      "id": "james",
+      "domain": "james.mybibleexplorer.com",
+      "repo": "James",
+      "artifactRoot": "out",
+      "stack": "next-static-export",
+      "build": ["npm run build"],
+      "routeSeeds": ["/", "/james/1/"],
+      "validate": ["npm run deploy:check"]
+    },
+    {
+      "id": "lastdayevents",
+      "domain": "lastdayevents.mybibleexplorer.com",
+      "repo": "lastdayevents",
+      "artifactRoot": ".",
+      "stack": "static-multipage",
+      "build": [],
+      "routeSeeds": ["/", "/timeline.html", "/article.html"],
+      "clientRenderedRoutes": ["/article.html", "/articles.html", "/timeline.html"],
+      "stateAudit": {"kind": "last-day-events", "source": "script.js", "minimum": 80}
+    },
+    {
+      "id": "parables",
+      "domain": "parables.mybibleexplorer.com",
+      "repo": "parables",
+      "artifactRoot": ".",
+      "stack": "static-spa",
+      "build": [],
+      "routeSeeds": ["/"],
+      "clientGeneratedFragments": true,
+      "validate": ["node scripts/validate-interactions.mjs"],
+      "stateAudit": {"kind": "object-ids", "source": "index.html", "minimum": 41}
+    },
+    {
+      "id": "philippians",
+      "domain": "philippians.mybibleexplorer.com",
+      "repo": "Philippians",
+      "artifactRoot": "out",
+      "stack": "next-static-export",
+      "build": ["npm run build"],
+      "routeSeeds": ["/", "/philippians/1/", "/philippians/4/"],
+      "knownDeferredContent": ["Philippians 4:1-23"],
+      "validate": ["npm run validate", "npm run typecheck", "npm run lint", "npm run build"]
+    },
+    {
+      "id": "psalms",
+      "domain": "psalms.mybibleexplorer.com",
+      "repo": "psalmsexplorer",
+      "artifactRoot": ".",
+      "stack": "browser-react-spa",
+      "build": ["pnpm run build"],
+      "routeSeeds": ["/"],
+      "validate": ["pnpm run check"],
+      "stateAudit": {"kind": "numbered-psalms", "minimum": 150}
+    },
+    {
+      "id": "revelation",
+      "domain": "revelation.mybibleexplorer.com",
+      "repo": "revelation",
+      "artifactRoot": ".",
+      "stack": "static-export",
+      "build": [],
+      "routeSeeds": ["/", "/chapter-1.html", "/verse-by-verse/revelation-1-1.html"],
+      "validate": ["node scripts/verify-verse-audit.mjs"]
+    },
+    {
+      "id": "romans",
+      "domain": "romans.mybibleexplorer.com",
+      "repo": "romans",
+      "artifactRoot": ".",
+      "stack": "static-hybrid-export",
+      "build": [],
+      "routeSeeds": ["/", "/romans/1/", "/articles/"],
+      "validate": [
+        "node scripts/sync-romans-static-hydration.mjs --check",
+        "node scripts/validate-romans-humanized-export.mjs",
+        "node scripts/validate-romans-source-agreement.mjs",
+        "node scripts/validate-romans-natural-flow.mjs",
+        "node scripts/validate-gospel-studies.mjs"
+      ]
+    },
+    {
+      "id": "sanctuary",
+      "domain": "sanctuary.mybibleexplorer.com",
+      "repo": "sanctuaryexplorer",
+      "artifactRoot": ".",
+      "stack": "vanilla-esm-spa",
+      "build": [],
+      "routeSeeds": ["/"],
+      "validate": ["npm run check"],
+      "stateAudit": {"kind": "data-attributes", "source": "index.html", "attributes": ["data-view", "data-scene-view", "data-scene-path"]}
+    }
+  ]
+}
