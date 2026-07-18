@@ -37,6 +37,11 @@ require(registry.deploymentDefaults?.provider === "github-pages", "default deplo
 require(registry.deploymentDefaults?.branch === "main", "default deployment branch must be main");
 require(registry.deploymentDefaults?.httpsRequired === true, "HTTPS must be required family-wide");
 
+const hubHtml = readFileSync(join(root, "index.html"), "utf8");
+const hubFavicon = "assets/my-bible-explorer-logo.png?v=mbe-20260715-1";
+require(hubHtml.includes(`<link rel="icon" type="image/png" href="${hubFavicon}">`), "hub must declare its checked-in favicon asset");
+require(existsSync(join(root, hubFavicon.split("?")[0])), "hub favicon asset is missing");
+
 const ids = new Set();
 const domains = new Set();
 const repos = new Set();

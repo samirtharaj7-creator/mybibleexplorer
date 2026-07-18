@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-07-18T16:23:41Z",
+  "generatedAt": "2026-07-18T16:29:08Z",
   "scope": {
     "domains": 18,
     "canonicalRoutes": 385,
@@ -130,9 +130,9 @@
       "domain": "mybibleexplorer.com",
       "routes": 1,
       "states": 0,
-      "headBeforeLedger": "8c911736ddd42530abdc0880cc86f2c5a4cd9a2c",
-      "repairCommits": ["8c91173"],
-      "repair": "Family QA registry, validators, contrast correction, screenshot dimensions/loading/cache versions, and final audit ledger.",
+      "headBeforeLedger": "7d4c230b916b1160b53f0336b6159be7905e6960",
+      "repairCommits": ["8c91173", "7d4c230"],
+      "repair": "Family QA registry, validators, contrast correction, explicit checked-in favicon, screenshot dimensions/loading/cache versions, and final audit ledger.",
       "status": "pass"
     },
     {
