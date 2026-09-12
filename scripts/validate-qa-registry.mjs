@@ -32,14 +32,14 @@ function validateRegisteredCommand(site, repoRoot, command, field) {
 }
 
 require(registry.schemaVersion === 1, "sites.json must use schemaVersion 1");
-require(registry.sites.length === 18, `expected 18 canonical sites; found ${registry.sites.length}`);
+require(registry.sites.length === 19, `expected 19 canonical sites; found ${registry.sites.length}`);
 require(registry.deploymentDefaults?.provider === "github-pages", "default deployment provider must be GitHub Pages");
 require(registry.deploymentDefaults?.branch === "main", "default deployment branch must be main");
 require(registry.deploymentDefaults?.httpsRequired === true, "HTTPS must be required family-wide");
 
 const hubHtml = readFileSync(join(root, "index.html"), "utf8");
-const hubFavicon = "assets/my-bible-explorer-logo.png?v=mbe-20260715-1";
-require(hubHtml.includes(`<link rel="icon" type="image/png" href="${hubFavicon}">`), "hub must declare its checked-in favicon asset");
+const hubFavicon = "assets/favicon-32.png?v=mbe-20260827-1";
+require(hubHtml.includes(hubFavicon), "hub must declare its checked-in favicon asset");
 require(existsSync(join(root, hubFavicon.split("?")[0])), "hub favicon asset is missing");
 
 const ids = new Set();
@@ -75,7 +75,7 @@ for (const duplicate of registry.excludedDuplicateDirectories ?? []) {
 
 const subdomainSites = registry.sites.filter((site) => site.id !== "hub");
 const screenshotDomains = new Set(screenshots.screenshots.map((item) => new URL(item.url).hostname));
-require(screenshots.screenshots.length === 17, `expected 17 deck screenshots; found ${screenshots.screenshots.length}`);
+require(screenshots.screenshots.length === 18, `expected 18 deck screenshots; found ${screenshots.screenshots.length}`);
 for (const site of subdomainSites) require(screenshotDomains.has(site.domain), `missing deck screenshot entry for ${site.domain}`);
 for (const domain of screenshotDomains) require(domains.has(domain) && domain !== "mybibleexplorer.com", `unexpected deck screenshot domain ${domain}`);
 

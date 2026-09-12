@@ -123,6 +123,8 @@
   .hero-shot:nth-child(11) img{object-position:center 20%;}
   .hero-shot:nth-child(12){width:226px;height:130px;right:390px;top:306px;transform:rotate(2deg);opacity:1;z-index:4;}
   .hero-shot:nth-child(12) img{object-position:center 18%;}
+  .hero-shot:nth-child(13){width:228px;height:132px;right:150px;top:164px;transform:rotate(1deg);opacity:1;z-index:6;}
+  .hero-shot:nth-child(13) img{object-position:center 18%;}
   .cta-row{margin-top:28px;display:flex;gap:14px;flex-wrap:wrap;}
   .btn{display:inline-flex;align-items:center;gap:.5rem;font-family:"Inter",sans-serif;font-weight:600;font-size:.92rem;padding:12px 22px;border-radius:2px;text-decoration:none;transition:transform .18s ease, box-shadow .18s ease, background .2s;cursor:pointer;border:none;}
   .btn-primary{background:var(--olive-deep);color:var(--parchment);}
@@ -181,6 +183,7 @@
   .s-parables{background:linear-gradient(135deg,#211b14,#8a7a48);}
   .s-isaiah{background:linear-gradient(135deg,#0b1f3a,#9f7f38);}
   .s-christ{background:linear-gradient(135deg,#211b14,#8f8678);}
+  .s-stc{background:linear-gradient(135deg,#1b1118,#c8892c);}
   .s-corinthians{background:linear-gradient(135deg,#0b1f3a,#aa873c);}
   .s-hebrews{background:linear-gradient(135deg,#142238,#6d6558);}
   .s-salvation{background:linear-gradient(135deg,#142032,#c9a24a);}
@@ -426,6 +429,7 @@
     <div class="hero-shot"><img src="screenshots/christ.png?v=qa20260718" alt="" width="1280" height="720" loading="lazy" decoding="async"></div>
     <div class="hero-shot"><img src="screenshots/corinthians.png?v=qa20260718" alt="" width="1280" height="720" loading="lazy" decoding="async"></div>
     <div class="hero-shot"><img src="screenshots/hebrews.png?v=qa20260718" alt="" width="1280" height="720" loading="lazy" decoding="async"></div>
+    <div class="hero-shot"><img src="screenshots/steps-to-christ.png?v=qa20260718" alt="" width="1280" height="720" loading="lazy" decoding="async"></div>
   </div>
   <div class="wrap">
     <h1 class="reveal">Learn to read the Bible <em>for yourself.</em></h1>
@@ -453,6 +457,11 @@
   <div class="marquee" id="libraryMarquee" tabindex="0" aria-label="Featured Bible study websites">
     <div class="track">
       <!-- SET A -->
+      <a class="frame" href="https://stc.mybibleexplorer.com/" target="_blank" rel="noopener noreferrer">
+        <div class="chrome"><span class="dots"><i></i><i></i><i></i></span><span class="addr">stc.mybibleexplorer.com</span></div>
+        <div class="shot s-stc"><img src="screenshots/steps-to-christ.png?v=qa20260718" alt="Find Your Way Home, a Steps to Christ journey" width="1280" height="720" loading="lazy" decoding="async" onerror="this.remove()" onload="this.parentNode.classList.add('has-img')"><h4>Find Your Way Home</h4></div>
+        <div class="cap"><div class="nm">Find Your Way Home · Steps to Christ</div></div>
+      </a>
       <a class="frame" href="https://salvation.mybibleexplorer.com/" target="_blank" rel="noopener noreferrer">
         <div class="chrome"><span class="dots"><i></i><i></i><i></i></span><span class="addr">salvation.mybibleexplorer.com</span></div>
         <div class="shot s-salvation"><img src="screenshots/salvation.png?v=20260908b" alt="Salvation: ask about righteousness by faith" loading="lazy" decoding="async" onerror="this.remove()" onload="this.parentNode.classList.add('has-img')"><h4>Salvation</h4></div>
@@ -544,6 +553,11 @@
         <div class="cap"><div class="nm">The Life of Christ</div></div>
       </a>
       <!-- SET B (duplicate for seamless loop) -->
+      <a class="frame" href="https://stc.mybibleexplorer.com/" target="_blank" rel="noopener noreferrer" aria-hidden="true" tabindex="-1">
+        <div class="chrome"><span class="dots"><i></i><i></i><i></i></span><span class="addr">stc.mybibleexplorer.com</span></div>
+        <div class="shot s-stc"><img src="screenshots/steps-to-christ.png?v=qa20260718" alt="Find Your Way Home, a Steps to Christ journey" width="1280" height="720" loading="lazy" decoding="async" onerror="this.remove()" onload="this.parentNode.classList.add('has-img')"><h4>Find Your Way Home</h4></div>
+        <div class="cap"><div class="nm">Find Your Way Home · Steps to Christ</div></div>
+      </a>
       <a class="frame" href="https://salvation.mybibleexplorer.com/" target="_blank" rel="noopener noreferrer" aria-hidden="true" tabindex="-1">
         <div class="chrome"><span class="dots"><i></i><i></i><i></i></span><span class="addr">salvation.mybibleexplorer.com</span></div>
         <div class="shot s-salvation"><img src="screenshots/salvation.png?v=20260908b" alt="Salvation: ask about righteousness by faith" loading="lazy" decoding="async" onerror="this.remove()" onload="this.parentNode.classList.add('has-img')"><h4>Salvation</h4></div>
@@ -813,6 +827,7 @@
             <p>Follow the life and teaching of Christ, then trace the grace, covenant, and kingdom He brings.</p>
             <div class="topic-links">
               <a class="topic-link" href="https://salvation.mybibleexplorer.com/" target="_blank" rel="noopener noreferrer"><span>Salvation · Righteousness by Faith</span><span aria-hidden="true">&rarr;</span></a>
+              <a class="topic-link" href="https://stc.mybibleexplorer.com/" target="_blank" rel="noopener noreferrer"><span>Find Your Way Home · Steps to Christ</span><span aria-hidden="true">&rarr;</span></a>
               <a class="topic-link" href="https://christ.mybibleexplorer.com/" target="_blank" rel="noopener noreferrer"><span>The Life of Christ</span><span aria-hidden="true">&rarr;</span></a>
               <a class="topic-link" href="https://parables.mybibleexplorer.com" target="_blank" rel="noopener noreferrer"><span>The Parables of Christ</span><span aria-hidden="true">&rarr;</span></a>
               <a class="topic-link" href="https://romans.mybibleexplorer.com" target="_blank" rel="noopener noreferrer"><span>Romans</span><span aria-hidden="true">&rarr;</span></a>
@@ -936,7 +951,7 @@
   const exploreModeNote = document.getElementById('exploreModeNote');
   const exploreNotes = {
     books: 'Twelve book studies, arranged in Bible order',
-    topics: 'Seventeen studies, gathered around four themes'
+    topics: 'Eighteen studies, gathered around four themes'
   };
 
   const selectExploreMode = (mode, moveFocus = false) => {

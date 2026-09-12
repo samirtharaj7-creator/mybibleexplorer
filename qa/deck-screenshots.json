@@ -28,6 +28,7 @@
     {"id":"isaiah","file":"screenshots/isaiah.png","url":"https://isaiah.mybibleexplorer.com/","bytes":356500,"sha256":"319017189d84fd7745853cd6ba45d19f20092e7a1872f3cf49913f3cef31c7dc"},
     {"id":"daniel","file":"screenshots/daniel.png","url":"https://daniel.mybibleexplorer.com/","bytes":389420,"sha256":"7dd25887ecd0c2969497b88ee2ca47b1bc75c82d4b58189147bd8fc9e3cf8a71"},
     {"id":"revelation","file":"screenshots/revelation.png","url":"https://revelation.mybibleexplorer.com/","bytes":444086,"sha256":"a5b8578aae76c2fbfe03ffb54cb019196c623367f1f13362853df7880b749fcd"},
-    {"id":"christ","file":"screenshots/christ.png","url":"https://christ.mybibleexplorer.com/","bytes":143612,"sha256":"2a9e517d24e87219670daad6723c39d0ecfd519df6eb1bc9dfb1ce0aae895d6f"}
+    {"id":"christ","file":"screenshots/christ.png","url":"https://christ.mybibleexplorer.com/","bytes":143612,"sha256":"2a9e517d24e87219670daad6723c39d0ecfd519df6eb1bc9dfb1ce0aae895d6f"},
+    {"id":"steps-to-christ","file":"screenshots/steps-to-christ.png","url":"https://stc.mybibleexplorer.com/","bytes":279928,"sha256":"2287f7e14a2833f486d4e8cbb543630c095f7ef25f1e00d7eba465ea281c105d"}
   ]
 }

@@ -219,6 +219,16 @@
       ]
     },
     {
+      "id": "steps-to-christ",
+      "domain": "stc.mybibleexplorer.com",
+      "repo": "steps-to-christ",
+      "artifactRoot": ".",
+      "stack": "static-multipage",
+      "build": [],
+      "routeSeeds": ["/", "/chapters/01-gods-love.html"],
+      "validate": ["node --check assets/mbe-unified.js", "node --check assets/site.js"]
+    },
+    {
       "id": "sanctuary",
       "domain": "sanctuary.mybibleexplorer.com",
       "repo": "sanctuaryexplorer",
