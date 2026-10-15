@@ -17,7 +17,7 @@ function pngSize(buffer) {
   return { width: buffer.readUInt32BE(16), height: buffer.readUInt32BE(20) };
 }
 
-if (manifest.screenshots.length !== 18) errors.push(`Expected 18 deck screenshots; found ${manifest.screenshots.length}.`);
+if (manifest.screenshots.length !== 19) errors.push(`Expected 19 deck screenshots; found ${manifest.screenshots.length}.`);
 if (Number.isNaN(Date.parse(manifest.capture.capturedAt))) errors.push("Capture manifest has no valid capturedAt timestamp.");
 if (manifest.capture.cardFit !== "cover" || manifest.capture.cardPosition !== "top center") {
   errors.push("Capture manifest does not match the hub card crop CSS.");

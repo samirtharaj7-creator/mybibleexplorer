@@ -32,7 +32,7 @@ function validateRegisteredCommand(site, repoRoot, command, field) {
 }
 
 require(registry.schemaVersion === 1, "sites.json must use schemaVersion 1");
-require(registry.sites.length === 19, `expected 19 canonical sites; found ${registry.sites.length}`);
+require(registry.sites.length === 20, `expected 20 canonical sites; found ${registry.sites.length}`);
 require(registry.deploymentDefaults?.provider === "github-pages", "default deployment provider must be GitHub Pages");
 require(registry.deploymentDefaults?.branch === "main", "default deployment branch must be main");
 require(registry.deploymentDefaults?.httpsRequired === true, "HTTPS must be required family-wide");
@@ -75,7 +75,7 @@ for (const duplicate of registry.excludedDuplicateDirectories ?? []) {
 
 const subdomainSites = registry.sites.filter((site) => site.id !== "hub");
 const screenshotDomains = new Set(screenshots.screenshots.map((item) => new URL(item.url).hostname));
-require(screenshots.screenshots.length === 18, `expected 18 deck screenshots; found ${screenshots.screenshots.length}`);
+require(screenshots.screenshots.length === 19, `expected 19 deck screenshots; found ${screenshots.screenshots.length}`);
 for (const site of subdomainSites) require(screenshotDomains.has(site.domain), `missing deck screenshot entry for ${site.domain}`);
 for (const domain of screenshotDomains) require(domains.has(domain) && domain !== "mybibleexplorer.com", `unexpected deck screenshot domain ${domain}`);
 

@@ -30,8 +30,12 @@
       "artifactRoot": ".",
       "stack": "static-html",
       "build": [],
-      "routeSeeds": ["/"],
-      "validate": ["node scripts/validate-deck-screenshots.mjs"]
+      "routeSeeds": [
+        "/"
+      ],
+      "validate": [
+        "node scripts/validate-deck-screenshots.mjs"
+      ]
     },
     {
       "id": "christ",
@@ -40,10 +44,18 @@
       "artifactRoot": ".",
       "stack": "static-spa",
       "build": [],
-      "routeSeeds": ["/"],
+      "routeSeeds": [
+        "/"
+      ],
       "clientGeneratedFragments": true,
-      "deployment": {"preserveSitesMetadata": true, "publishWithSites": false},
-      "stateAudit": {"kind": "christ-scenes", "source": "index.html"}
+      "deployment": {
+        "preserveSitesMetadata": true,
+        "publishWithSites": false
+      },
+      "stateAudit": {
+        "kind": "christ-scenes",
+        "source": "index.html"
+      }
     },
     {
       "id": "colossians",
@@ -51,9 +63,20 @@
       "repo": "Colossians",
       "artifactRoot": "out",
       "stack": "next-static-export",
-      "build": ["npm run build"],
-      "routeSeeds": ["/", "/colossians/1/"],
-      "validate": ["npm run validate", "npm run audit:humanization", "npm run typecheck", "npm run lint", "npm run build"]
+      "build": [
+        "npm run build"
+      ],
+      "routeSeeds": [
+        "/",
+        "/colossians/1/"
+      ],
+      "validate": [
+        "npm run validate",
+        "npm run audit:humanization",
+        "npm run typecheck",
+        "npm run lint",
+        "npm run build"
+      ]
     },
     {
       "id": "corinthians",
@@ -61,10 +84,24 @@
       "repo": "Corinthians",
       "artifactRoot": "out",
       "stack": "next-static-export",
-      "build": ["npm run build"],
-      "routeSeeds": ["/", "/1-corinthians/1/", "/2-corinthians/1/"],
+      "build": [
+        "npm run build"
+      ],
+      "routeSeeds": [
+        "/",
+        "/1-corinthians/1/",
+        "/2-corinthians/1/"
+      ],
       "clientGeneratedFragments": true,
-      "validate": ["npm run validate:background", "npm run validate:corinthians", "npm run validate:theology", "npm run validate:humanization", "npm run typecheck", "npm run lint", "npm run build"]
+      "validate": [
+        "npm run validate:background",
+        "npm run validate:corinthians",
+        "npm run validate:theology",
+        "npm run validate:humanization",
+        "npm run typecheck",
+        "npm run lint",
+        "npm run build"
+      ]
     },
     {
       "id": "daniel",
@@ -73,7 +110,11 @@
       "artifactRoot": ".",
       "stack": "prebuilt-next-export",
       "build": [],
-      "routeSeeds": ["/", "/chapters/1/", "/articles/"],
+      "routeSeeds": [
+        "/",
+        "/chapters/1/",
+        "/articles/"
+      ],
       "validate": [
         "node scripts/sync-daniel-hydration.mjs --check",
         "node scripts/audit-daniel-humanization.mjs",
@@ -86,10 +127,17 @@
       "repo": "Ephesians",
       "artifactRoot": "out",
       "stack": "next-static-export",
-      "build": ["npm run build"],
-      "routeSeeds": ["/", "/ephesians/1/"],
+      "build": [
+        "npm run build"
+      ],
+      "routeSeeds": [
+        "/",
+        "/ephesians/1/"
+      ],
       "clientGeneratedFragments": true,
-      "validate": ["npm run deploy:check"]
+      "validate": [
+        "npm run deploy:check"
+      ]
     },
     {
       "id": "galatians",
@@ -97,10 +145,17 @@
       "repo": "Galatians",
       "artifactRoot": "out",
       "stack": "next-static-export",
-      "build": ["npm run build"],
-      "routeSeeds": ["/", "/galatians/1/"],
+      "build": [
+        "npm run build"
+      ],
+      "routeSeeds": [
+        "/",
+        "/galatians/1/"
+      ],
       "clientGeneratedFragments": true,
-      "validate": ["npm run check"]
+      "validate": [
+        "npm run check"
+      ]
     },
     {
       "id": "hebrews",
@@ -108,10 +163,20 @@
       "repo": "Hebrews",
       "artifactRoot": "out",
       "stack": "next-static-export",
-      "build": ["npm run build"],
-      "routeSeeds": ["/", "/hebrews/1/"],
+      "build": [
+        "npm run build"
+      ],
+      "routeSeeds": [
+        "/",
+        "/hebrews/1/"
+      ],
       "clientGeneratedFragments": true,
-      "validate": ["npm run validate", "npm run typecheck", "npm run lint", "npm run build"]
+      "validate": [
+        "npm run validate",
+        "npm run typecheck",
+        "npm run lint",
+        "npm run build"
+      ]
     },
     {
       "id": "hermeneutics",
@@ -120,7 +185,11 @@
       "artifactRoot": ".",
       "stack": "generated-static-routes",
       "build": [],
-      "routeSeeds": ["/", "/step-1/", "/examples/"],
+      "routeSeeds": [
+        "/",
+        "/step-1/",
+        "/examples/"
+      ],
       "validate": [
         "node scripts/sanitize-tailwind-runtime.mjs --check",
         "node scripts/validate-production-repairs.mjs",
@@ -134,8 +203,14 @@
       "artifactRoot": ".",
       "stack": "generated-static-html",
       "build": [],
-      "routeSeeds": ["/", "/chapters/1.html", "/commentary/1/1.html"],
-      "validate": ["node scripts/audit-commentary-humanization.mjs"]
+      "routeSeeds": [
+        "/",
+        "/chapters/1.html",
+        "/commentary/1/1.html"
+      ],
+      "validate": [
+        "node scripts/audit-commentary-humanization.mjs"
+      ]
     },
     {
       "id": "james",
@@ -143,9 +218,16 @@
       "repo": "James",
       "artifactRoot": "out",
       "stack": "next-static-export",
-      "build": ["npm run build"],
-      "routeSeeds": ["/", "/james/1/"],
-      "validate": ["npm run deploy:check"]
+      "build": [
+        "npm run build"
+      ],
+      "routeSeeds": [
+        "/",
+        "/james/1/"
+      ],
+      "validate": [
+        "npm run deploy:check"
+      ]
     },
     {
       "id": "lastdayevents",
@@ -154,9 +236,21 @@
       "artifactRoot": ".",
       "stack": "static-multipage",
       "build": [],
-      "routeSeeds": ["/", "/timeline.html", "/article.html"],
-      "clientRenderedRoutes": ["/article.html", "/articles.html", "/timeline.html"],
-      "stateAudit": {"kind": "last-day-events", "source": "script.js", "minimum": 80}
+      "routeSeeds": [
+        "/",
+        "/timeline.html",
+        "/article.html"
+      ],
+      "clientRenderedRoutes": [
+        "/article.html",
+        "/articles.html",
+        "/timeline.html"
+      ],
+      "stateAudit": {
+        "kind": "last-day-events",
+        "source": "script.js",
+        "minimum": 80
+      }
     },
     {
       "id": "parables",
@@ -165,10 +259,18 @@
       "artifactRoot": ".",
       "stack": "static-spa",
       "build": [],
-      "routeSeeds": ["/"],
+      "routeSeeds": [
+        "/"
+      ],
       "clientGeneratedFragments": true,
-      "validate": ["node scripts/validate-interactions.mjs"],
-      "stateAudit": {"kind": "object-ids", "source": "index.html", "minimum": 41}
+      "validate": [
+        "node scripts/validate-interactions.mjs"
+      ],
+      "stateAudit": {
+        "kind": "object-ids",
+        "source": "index.html",
+        "minimum": 41
+      }
     },
     {
       "id": "philippians",
@@ -176,10 +278,23 @@
       "repo": "Philippians",
       "artifactRoot": "out",
       "stack": "next-static-export",
-      "build": ["npm run build"],
-      "routeSeeds": ["/", "/philippians/1/", "/philippians/4/"],
-      "knownDeferredContent": ["Philippians 4:1-23"],
-      "validate": ["npm run validate", "npm run typecheck", "npm run lint", "npm run build"]
+      "build": [
+        "npm run build"
+      ],
+      "routeSeeds": [
+        "/",
+        "/philippians/1/",
+        "/philippians/4/"
+      ],
+      "knownDeferredContent": [
+        "Philippians 4:1-23"
+      ],
+      "validate": [
+        "npm run validate",
+        "npm run typecheck",
+        "npm run lint",
+        "npm run build"
+      ]
     },
     {
       "id": "psalms",
@@ -187,10 +302,19 @@
       "repo": "psalmsexplorer",
       "artifactRoot": ".",
       "stack": "browser-react-spa",
-      "build": ["pnpm run build"],
-      "routeSeeds": ["/"],
-      "validate": ["pnpm run check"],
-      "stateAudit": {"kind": "numbered-psalms", "minimum": 150}
+      "build": [
+        "pnpm run build"
+      ],
+      "routeSeeds": [
+        "/"
+      ],
+      "validate": [
+        "pnpm run check"
+      ],
+      "stateAudit": {
+        "kind": "numbered-psalms",
+        "minimum": 150
+      }
     },
     {
       "id": "revelation",
@@ -199,8 +323,14 @@
       "artifactRoot": ".",
       "stack": "static-export",
       "build": [],
-      "routeSeeds": ["/", "/chapter-1.html", "/verse-by-verse/revelation-1-1.html"],
-      "validate": ["node scripts/verify-verse-audit.mjs"]
+      "routeSeeds": [
+        "/",
+        "/chapter-1.html",
+        "/verse-by-verse/revelation-1-1.html"
+      ],
+      "validate": [
+        "node scripts/verify-verse-audit.mjs"
+      ]
     },
     {
       "id": "romans",
@@ -209,7 +339,11 @@
       "artifactRoot": ".",
       "stack": "static-hybrid-export",
       "build": [],
-      "routeSeeds": ["/", "/romans/1/", "/articles/"],
+      "routeSeeds": [
+        "/",
+        "/romans/1/",
+        "/articles/"
+      ],
       "validate": [
         "node scripts/sync-romans-static-hydration.mjs --check",
         "node scripts/validate-romans-humanized-export.mjs",
@@ -225,8 +359,14 @@
       "artifactRoot": ".",
       "stack": "static-multipage",
       "build": [],
-      "routeSeeds": ["/", "/chapters/01-gods-love.html"],
-      "validate": ["node --check assets/mbe-unified.js", "node --check assets/site.js"]
+      "routeSeeds": [
+        "/",
+        "/chapters/01-gods-love.html"
+      ],
+      "validate": [
+        "node --check assets/mbe-unified.js",
+        "node --check assets/site.js"
+      ]
     },
     {
       "id": "sanctuary",
@@ -235,9 +375,34 @@
       "artifactRoot": ".",
       "stack": "vanilla-esm-spa",
       "build": [],
-      "routeSeeds": ["/"],
-      "validate": ["npm run check"],
-      "stateAudit": {"kind": "data-attributes", "source": "index.html", "attributes": ["data-view", "data-scene-view", "data-scene-path"]}
+      "routeSeeds": [
+        "/"
+      ],
+      "validate": [
+        "npm run check"
+      ],
+      "stateAudit": {
+        "kind": "data-attributes",
+        "source": "index.html",
+        "attributes": [
+          "data-view",
+          "data-scene-view",
+          "data-scene-path"
+        ]
+      }
+    },
+    {
+      "id": "askew",
+      "domain": "askew.mybibleexplorer.com",
+      "repo": "Ellen White",
+      "artifactRoot": ".",
+      "stack": "next-server",
+      "build": [
+        "npm run build"
+      ],
+      "routeSeeds": [
+        "/"
+      ]
     }
   ]
 }
