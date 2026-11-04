@@ -403,6 +403,132 @@
       "routeSeeds": [
         "/"
       ]
+    },
+    {
+      "id": "thessalonians",
+      "domain": "thessalonians.mybibleexplorer.com",
+      "repo": "Thessalonians",
+      "artifactRoot": "out",
+      "stack": "next-static-export",
+      "build": [
+        "npm run build"
+      ],
+      "routeSeeds": [
+        "/",
+        "/background/",
+        "/1-thessalonians/1/"
+      ],
+      "validate": [
+        "npm run deploy:check"
+      ]
+    },
+    {
+      "id": "timothy",
+      "domain": "timothy.mybibleexplorer.com",
+      "repo": "Timothy",
+      "artifactRoot": "out",
+      "stack": "next-static-export",
+      "build": [
+        "npm run build"
+      ],
+      "routeSeeds": [
+        "/",
+        "/background/",
+        "/1-timothy/1/"
+      ],
+      "validate": [
+        "npm run deploy:check"
+      ]
+    },
+    {
+      "id": "titus",
+      "domain": "titus.mybibleexplorer.com",
+      "repo": "Titus",
+      "artifactRoot": "out",
+      "stack": "next-static-export",
+      "build": [
+        "npm run build"
+      ],
+      "routeSeeds": [
+        "/",
+        "/background/",
+        "/titus/1/"
+      ],
+      "validate": [
+        "npm run deploy:check"
+      ]
+    },
+    {
+      "id": "philemon",
+      "domain": "philemon.mybibleexplorer.com",
+      "repo": "Philemon",
+      "artifactRoot": "out",
+      "stack": "next-static-export",
+      "build": [
+        "npm run build"
+      ],
+      "routeSeeds": [
+        "/",
+        "/background/",
+        "/philemon/1/"
+      ],
+      "validate": [
+        "npm run deploy:check"
+      ]
+    },
+    {
+      "id": "peter",
+      "domain": "peter.mybibleexplorer.com",
+      "repo": "Peter",
+      "artifactRoot": "out",
+      "stack": "next-static-export",
+      "build": [
+        "npm run build"
+      ],
+      "routeSeeds": [
+        "/",
+        "/background/",
+        "/1-peter/1/"
+      ],
+      "validate": [
+        "npm run deploy:check"
+      ]
+    },
+    {
+      "id": "johnletters",
+      "domain": "johnletters.mybibleexplorer.com",
+      "repo": "John-Letters",
+      "artifactRoot": "out",
+      "stack": "next-static-export",
+      "build": [
+        "npm run build"
+      ],
+      "routeSeeds": [
+        "/",
+        "/background/",
+        "/1-john/1/"
+      ],
+      "validate": [
+        "npm run deploy:check"
+      ]
+    },
+    {
+      "id": "jude",
+      "domain": "jude.mybibleexplorer.com",
+      "repo": "Jude",
+      "artifactRoot": "out",
+      "stack": "next-static-export",
+      "build": [
+        "npm run build"
+      ],
+      "routeSeeds": [
+        "/",
+        "/background/",
+        "/jude/1/"
+      ],
+      "validate": [
+        "npm run deploy:check"
+      ]
     }
   ]
 }

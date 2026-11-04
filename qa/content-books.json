@@ -1,15 +1,183 @@
 {
   "schemaVersion": 1,
-  "unresolvedReviewStatuses": ["", "placeholder", "needs-source-review", "needs-review", "draft"],
+  "unresolvedReviewStatuses": [
+    "",
+    "placeholder",
+    "needs-source-review",
+    "needs-review",
+    "draft"
+  ],
   "books": [
-    {"site":"colossians","repo":"Colossians","root":"content/colossians","book":"Colossians","chapterCount":4,"maxWordNotes":2},
-    {"site":"corinthians","repo":"Corinthians","root":"content/1-corinthians","book":"1 Corinthians","chapterCount":16,"maxWordNotes":2},
-    {"site":"corinthians","repo":"Corinthians","root":"content/2-corinthians","book":"2 Corinthians","chapterCount":13,"maxWordNotes":2},
-    {"site":"ephesians","repo":"Ephesians","root":"content/ephesians","book":"Ephesians","chapterCount":6,"maxWordNotes":2},
-    {"site":"galatians","repo":"Galatians","root":"content/galatians","book":"Galatians","chapterCount":6,"maxWordNotes":2},
-    {"site":"hebrews","repo":"Hebrews","root":"content/hebrews","book":"Hebrews","chapterCount":13,"maxWordNotes":2},
-    {"site":"james","repo":"James","root":"content/james","book":"James","chapterCount":5,"maxWordNotes":2},
-    {"site":"philippians","repo":"Philippians","root":"content/philippians","book":"Philippians","chapterCount":4,"maxWordNotes":2,"excludedFromCertification":[4]},
-    {"site":"romans","repo":"romans","root":"content/romans","book":"Romans","chapterCount":16,"maxWordNotes":3}
+    {
+      "site": "colossians",
+      "repo": "Colossians",
+      "root": "content/colossians",
+      "book": "Colossians",
+      "chapterCount": 4,
+      "maxWordNotes": 2
+    },
+    {
+      "site": "corinthians",
+      "repo": "Corinthians",
+      "root": "content/1-corinthians",
+      "book": "1 Corinthians",
+      "chapterCount": 16,
+      "maxWordNotes": 2
+    },
+    {
+      "site": "corinthians",
+      "repo": "Corinthians",
+      "root": "content/2-corinthians",
+      "book": "2 Corinthians",
+      "chapterCount": 13,
+      "maxWordNotes": 2
+    },
+    {
+      "site": "ephesians",
+      "repo": "Ephesians",
+      "root": "content/ephesians",
+      "book": "Ephesians",
+      "chapterCount": 6,
+      "maxWordNotes": 2
+    },
+    {
+      "site": "galatians",
+      "repo": "Galatians",
+      "root": "content/galatians",
+      "book": "Galatians",
+      "chapterCount": 6,
+      "maxWordNotes": 2
+    },
+    {
+      "site": "hebrews",
+      "repo": "Hebrews",
+      "root": "content/hebrews",
+      "book": "Hebrews",
+      "chapterCount": 13,
+      "maxWordNotes": 2
+    },
+    {
+      "site": "james",
+      "repo": "James",
+      "root": "content/james",
+      "book": "James",
+      "chapterCount": 5,
+      "maxWordNotes": 2
+    },
+    {
+      "site": "philippians",
+      "repo": "Philippians",
+      "root": "content/philippians",
+      "book": "Philippians",
+      "chapterCount": 4,
+      "maxWordNotes": 2,
+      "excludedFromCertification": [
+        4
+      ]
+    },
+    {
+      "site": "romans",
+      "repo": "romans",
+      "root": "content/romans",
+      "book": "Romans",
+      "chapterCount": 16,
+      "maxWordNotes": 3
+    },
+    {
+      "site": "thessalonians",
+      "repo": "Thessalonians",
+      "root": "content/1-thessalonians",
+      "book": "1 Thessalonians",
+      "chapterCount": 5,
+      "maxWordNotes": 2
+    },
+    {
+      "site": "thessalonians",
+      "repo": "Thessalonians",
+      "root": "content/2-thessalonians",
+      "book": "2 Thessalonians",
+      "chapterCount": 3,
+      "maxWordNotes": 2
+    },
+    {
+      "site": "timothy",
+      "repo": "Timothy",
+      "root": "content/1-timothy",
+      "book": "1 Timothy",
+      "chapterCount": 6,
+      "maxWordNotes": 2
+    },
+    {
+      "site": "timothy",
+      "repo": "Timothy",
+      "root": "content/2-timothy",
+      "book": "2 Timothy",
+      "chapterCount": 4,
+      "maxWordNotes": 2
+    },
+    {
+      "site": "titus",
+      "repo": "Titus",
+      "root": "content/titus",
+      "book": "Titus",
+      "chapterCount": 3,
+      "maxWordNotes": 2
+    },
+    {
+      "site": "philemon",
+      "repo": "Philemon",
+      "root": "content/philemon",
+      "book": "Philemon",
+      "chapterCount": 1,
+      "maxWordNotes": 2
+    },
+    {
+      "site": "peter",
+      "repo": "Peter",
+      "root": "content/1-peter",
+      "book": "1 Peter",
+      "chapterCount": 5,
+      "maxWordNotes": 2
+    },
+    {
+      "site": "peter",
+      "repo": "Peter",
+      "root": "content/2-peter",
+      "book": "2 Peter",
+      "chapterCount": 3,
+      "maxWordNotes": 2
+    },
+    {
+      "site": "johnletters",
+      "repo": "John-Letters",
+      "root": "content/1-john",
+      "book": "1 John",
+      "chapterCount": 5,
+      "maxWordNotes": 2
+    },
+    {
+      "site": "johnletters",
+      "repo": "John-Letters",
+      "root": "content/2-john",
+      "book": "2 John",
+      "chapterCount": 1,
+      "maxWordNotes": 2
+    },
+    {
+      "site": "johnletters",
+      "repo": "John-Letters",
+      "root": "content/3-john",
+      "book": "3 John",
+      "chapterCount": 1,
+      "maxWordNotes": 2
+    },
+    {
+      "site": "jude",
+      "repo": "Jude",
+      "root": "content/jude",
+      "book": "Jude",
+      "chapterCount": 1,
+      "maxWordNotes": 2
+    }
   ]
 }

@@ -144,6 +144,55 @@
       "url": "https://askew.mybibleexplorer.com/",
       "bytes": 162569,
       "sha256": "83a2443bd0bdbc904ceefdffa060542a6f199b2dbd5511de24ed5f3eea57051f"
+    },
+    {
+      "id": "thessalonians",
+      "file": "screenshots/thessalonians.png",
+      "url": "https://thessalonians.mybibleexplorer.com/",
+      "bytes": 370358,
+      "sha256": "a76f16a0f2f32a62d38532c1b0a7eb5a6f258c08f6749ab7182574ed0778a16d"
+    },
+    {
+      "id": "timothy",
+      "file": "screenshots/timothy.png",
+      "url": "https://timothy.mybibleexplorer.com/",
+      "bytes": 333766,
+      "sha256": "a9aef04091f312bc945396f208e2d75660af3b95bf3c5eb6c1c201a22e916083"
+    },
+    {
+      "id": "titus",
+      "file": "screenshots/titus.png",
+      "url": "https://titus.mybibleexplorer.com/",
+      "bytes": 337536,
+      "sha256": "99a07c7aa1da29c8dbbf353c7adf7f54c2ff9b1f93c73d9701f2f0a4a3368128"
+    },
+    {
+      "id": "philemon",
+      "file": "screenshots/philemon.png",
+      "url": "https://philemon.mybibleexplorer.com/",
+      "bytes": 362114,
+      "sha256": "ebdfd14205bb0f7cc077c2f5f651b5ff5f4aa33a31564aca3a38dcd48cd365ce"
+    },
+    {
+      "id": "peter",
+      "file": "screenshots/peter.png",
+      "url": "https://peter.mybibleexplorer.com/",
+      "bytes": 325759,
+      "sha256": "ade308dcc2d27f354ac9e9d0a3677c1d5de241c071ccafce71860cda7639f344"
+    },
+    {
+      "id": "johnletters",
+      "file": "screenshots/johnletters.png",
+      "url": "https://johnletters.mybibleexplorer.com/",
+      "bytes": 385760,
+      "sha256": "f6a13642ef8f50efd56f43887a80cb91464d4dd2c36de1ba34cf0291e1735356"
+    },
+    {
+      "id": "jude",
+      "file": "screenshots/jude.png",
+      "url": "https://jude.mybibleexplorer.com/",
+      "bytes": 353089,
+      "sha256": "a4a7c505fbfc8cf28dc86cd4cf7f568fdb36785b92208f7b95b14cd606cca667"
     }
   ]
 }
