@@ -193,6 +193,13 @@
       "url": "https://jude.mybibleexplorer.com/",
       "bytes": 353089,
       "sha256": "a4a7c505fbfc8cf28dc86cd4cf7f568fdb36785b92208f7b95b14cd606cca667"
+    },
+    {
+      "id": "genesis",
+      "file": "screenshots/genesis.png",
+      "url": "https://genesis.mybibleexplorer.com/",
+      "bytes": 328496,
+      "sha256": "5ba0842f711039808fe80a8585b9ed53fa5284b3084d2071b5e7b43560265dcb"
     }
   ]
 }

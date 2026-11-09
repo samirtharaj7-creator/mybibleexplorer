@@ -178,6 +178,14 @@
       "book": "Jude",
       "chapterCount": 1,
       "maxWordNotes": 2
+    },
+    {
+      "site": "genesis",
+      "repo": "Genesis",
+      "root": "content/genesis",
+      "book": "Genesis",
+      "chapterCount": 50,
+      "maxWordNotes": 2
     }
   ]
 }

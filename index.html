@@ -192,6 +192,7 @@
   .s-philippians{background:linear-gradient(135deg,#15273a,#a08448);}
   .s-colossians{background:linear-gradient(135deg,#0e2238,#78694b);}
   .s-james{background:linear-gradient(135deg,#102238,#7d6945);}
+  .s-genesis{background:linear-gradient(135deg,#0d1f35,#7b6644);}
   .s-thessalonians{background:linear-gradient(135deg,#0d2036,#7f6a43);}
   .s-timothy{background:linear-gradient(135deg,#0c1e34,#7a6440);}
   .s-titus{background:linear-gradient(135deg,#0f2338,#816b44);}
@@ -484,6 +485,11 @@
         <div class="shot s-herm"><img src="screenshots/hermeneutics.png?v=qa20260718" alt="Interpreting the Bible" width="1280" height="720" loading="lazy" decoding="async" onerror="this.remove()" onload="this.parentNode.classList.add('has-img')"><h4>Interpreting the Bible</h4></div>
         <div class="cap"><div class="nm">Interpreting the Bible</div></div>
       </a>
+      <a class="frame" href="https://genesis.mybibleexplorer.com/" target="_blank" rel="noopener noreferrer">
+        <div class="chrome"><span class="dots"><i></i><i></i><i></i></span><span class="addr">genesis.mybibleexplorer.com</span></div>
+        <div class="shot s-genesis"><img src="screenshots/genesis.png?v=qa20260718" alt="The Book of Genesis" width="1280" height="720" loading="lazy" decoding="async" onerror="this.remove()" onload="this.parentNode.classList.add('has-img')"><h4>The Book of Genesis</h4></div>
+        <div class="cap"><div class="nm">The Book of Genesis</div></div>
+      </a>
       <a class="frame" href="https://psalms.mybibleexplorer.com" target="_blank" rel="noopener noreferrer">
         <div class="chrome"><span class="dots"><i></i><i></i><i></i></span><span class="addr">psalms.mybibleexplorer.com</span></div>
         <div class="shot s-psalm"><img src="screenshots/psalms.png?v=qa20260718" alt="The Psalms" width="1280" height="720" loading="lazy" decoding="async" onerror="this.remove()" onload="this.parentNode.classList.add('has-img')"><h4>The Psalms</h4></div>
@@ -619,6 +625,11 @@
         <div class="chrome"><span class="dots"><i></i><i></i><i></i></span><span class="addr">hermeneutics.mybibleexplorer.com</span></div>
         <div class="shot s-herm"><img src="screenshots/hermeneutics.png?v=qa20260718" alt="Interpreting the Bible" width="1280" height="720" loading="lazy" decoding="async" onerror="this.remove()" onload="this.parentNode.classList.add('has-img')"><h4>Interpreting the Bible</h4></div>
         <div class="cap"><div class="nm">Interpreting the Bible</div></div>
+      </a>
+      <a class="frame" href="https://genesis.mybibleexplorer.com/" target="_blank" rel="noopener noreferrer" aria-hidden="true" tabindex="-1">
+        <div class="chrome"><span class="dots"><i></i><i></i><i></i></span><span class="addr">genesis.mybibleexplorer.com</span></div>
+        <div class="shot s-genesis"><img src="screenshots/genesis.png?v=qa20260718" alt="The Book of Genesis" width="1280" height="720" loading="lazy" decoding="async" onerror="this.remove()" onload="this.parentNode.classList.add('has-img')"><h4>The Book of Genesis</h4></div>
+        <div class="cap"><div class="nm">The Book of Genesis</div></div>
       </a>
       <a class="frame" href="https://psalms.mybibleexplorer.com" target="_blank" rel="noopener noreferrer" aria-hidden="true" tabindex="-1">
         <div class="chrome"><span class="dots"><i></i><i></i><i></i></span><span class="addr">psalms.mybibleexplorer.com</span></div>
@@ -862,17 +873,18 @@
           <button class="explore-tab is-active" id="explore-books-tab" type="button" role="tab" aria-selected="true" aria-controls="explore-books-panel" data-explore-tab="books">By Bible book</button>
           <button class="explore-tab" id="explore-topics-tab" type="button" role="tab" aria-selected="false" aria-controls="explore-topics-panel" data-explore-tab="topics" tabindex="-1">By topic</button>
         </div>
-        <p class="explore-mode-note" id="exploreModeNote" aria-live="polite">Nineteen book studies, arranged in Bible order</p>
+        <p class="explore-mode-note" id="exploreModeNote" aria-live="polite">Twenty book studies, arranged in Bible order</p>
       </div>
 
       <div class="explore-panel" id="explore-books-panel" role="tabpanel" aria-labelledby="explore-books-tab" data-explore-panel="books" tabindex="0">
         <div class="book-browser">
           <section class="testament-group" aria-labelledby="old-testament-heading">
             <header class="testament-head">
-              <div><span class="testament-kicker">Old Testament</span><h3 id="old-testament-heading">Wisdom and Prophets</h3></div>
-              <span class="study-count">3 studies</span>
+              <div><span class="testament-kicker">Old Testament</span><h3 id="old-testament-heading">Law, Wisdom and Prophets</h3></div>
+              <span class="study-count">4 studies</span>
             </header>
             <div class="directory-list">
+              <a class="directory-link" href="https://genesis.mybibleexplorer.com/" target="_blank" rel="noopener noreferrer"><span class="book-order">1</span><div class="directory-copy"><h4>Genesis</h4></div><span class="directory-arrow" aria-hidden="true">&rarr;</span></a>
               <a class="directory-link" href="https://psalms.mybibleexplorer.com" target="_blank" rel="noopener noreferrer"><span class="book-order">19</span><div class="directory-copy"><h4>Psalms</h4></div><span class="directory-arrow" aria-hidden="true">&rarr;</span></a>
               <a class="directory-link" href="https://isaiah.mybibleexplorer.com/" target="_blank" rel="noopener noreferrer"><span class="book-order">23</span><div class="directory-copy"><h4>Isaiah</h4></div><span class="directory-arrow" aria-hidden="true">&rarr;</span></a>
               <a class="directory-link" href="https://daniel.mybibleexplorer.com" target="_blank" rel="noopener noreferrer"><span class="book-order">27</span><div class="directory-copy"><h4>Daniel</h4></div><span class="directory-arrow" aria-hidden="true">&rarr;</span></a>
@@ -939,6 +951,7 @@
             <div class="topic-heading"><span class="topic-number">03</span><h3>Faith and worship</h3></div>
             <p>Bring the whole life before God through prayer, church community, worship, and the story of salvation.</p>
             <div class="topic-links">
+              <a class="topic-link" href="https://genesis.mybibleexplorer.com/" target="_blank" rel="noopener noreferrer"><span>Genesis</span><span aria-hidden="true">&rarr;</span></a>
               <a class="topic-link" href="https://psalms.mybibleexplorer.com" target="_blank" rel="noopener noreferrer"><span>The Psalms</span><span aria-hidden="true">&rarr;</span></a>
               <a class="topic-link" href="https://corinthians.mybibleexplorer.com/" target="_blank" rel="noopener noreferrer"><span>The Corinthians</span><span aria-hidden="true">&rarr;</span></a>
               <a class="topic-link" href="https://philippians.mybibleexplorer.com/" target="_blank" rel="noopener noreferrer"><span>Philippians</span><span aria-hidden="true">&rarr;</span></a>
@@ -1052,8 +1065,8 @@
   const explorePanels = Array.from(exploreBrowser?.querySelectorAll('[data-explore-panel]') || []);
   const exploreModeNote = document.getElementById('exploreModeNote');
   const exploreNotes = {
-    books: 'Nineteen book studies, arranged in Bible order',
-    topics: 'Twenty-seven studies, gathered around four themes'
+    books: 'Twenty book studies, arranged in Bible order',
+    topics: 'Twenty-eight studies, gathered around four themes'
   };
 
   const selectExploreMode = (mode, moveFocus = false) => {

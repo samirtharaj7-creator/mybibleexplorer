@@ -9,7 +9,7 @@ const familyRoot = resolve(root, "..");
 const registry = JSON.parse(readFileSync(join(root, "qa", "sites.json"), "utf8"));
 const content = JSON.parse(readFileSync(join(root, "qa", "content-books.json"), "utf8"));
 const structuredRepos = new Set(content.books.map((book) => book.repo));
-const allowedVerbatimRepeats = new Set(["that", "very", "yea", "nay", "offered", "thousand", "sleep"]);
+const allowedVerbatimRepeats = new Set(["that", "very", "yea", "nay", "offered", "thousand", "sleep", "meod", "seven", "shivah", "shenayim"]);
 const findings = [];
 let authoredStrings = 0;
 let staticPages = 0;

@@ -529,6 +529,24 @@
       "validate": [
         "npm run deploy:check"
       ]
+    },
+    {
+      "id": "genesis",
+      "domain": "genesis.mybibleexplorer.com",
+      "repo": "Genesis",
+      "artifactRoot": "out",
+      "stack": "next-static-export",
+      "build": [
+        "npm run build"
+      ],
+      "routeSeeds": [
+        "/",
+        "/background/",
+        "/genesis/1/"
+      ],
+      "validate": [
+        "npm run deploy:check"
+      ]
     }
   ]
 }
