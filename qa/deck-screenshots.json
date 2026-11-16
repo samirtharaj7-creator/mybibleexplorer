@@ -200,6 +200,13 @@
       "url": "https://genesis.mybibleexplorer.com/",
       "bytes": 328496,
       "sha256": "5ba0842f711039808fe80a8585b9ed53fa5284b3084d2071b5e7b43560265dcb"
+    },
+    {
+      "id": "exodus",
+      "file": "screenshots/exodus.png",
+      "url": "https://exodus.mybibleexplorer.com/",
+      "bytes": 317060,
+      "sha256": "124337e5382048077ae4fd5453c19dc1b5dd161b58ac5daaa723ca772609fc7f"
     }
   ]
 }

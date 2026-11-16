@@ -547,6 +547,24 @@
       "validate": [
         "npm run deploy:check"
       ]
+    },
+    {
+      "id": "exodus",
+      "domain": "exodus.mybibleexplorer.com",
+      "repo": "Exodus",
+      "artifactRoot": "out",
+      "stack": "next-static-export",
+      "build": [
+        "npm run build"
+      ],
+      "routeSeeds": [
+        "/",
+        "/background/",
+        "/exodus/1/"
+      ],
+      "validate": [
+        "npm run deploy:check"
+      ]
     }
   ]
 }

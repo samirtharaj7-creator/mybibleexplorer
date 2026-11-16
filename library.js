@@ -16,6 +16,7 @@
   var LIBRARY = {
     book: [
       ["Genesis", "https://genesis.mybibleexplorer.com/"],
+      ["Exodus", "https://exodus.mybibleexplorer.com/"],
       ["Psalms", "https://psalms.mybibleexplorer.com/"],
       ["Isaiah", "https://isaiah.mybibleexplorer.com/"],
       ["Daniel", "https://daniel.mybibleexplorer.com/"],

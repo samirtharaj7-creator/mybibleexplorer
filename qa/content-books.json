@@ -186,6 +186,14 @@
       "book": "Genesis",
       "chapterCount": 50,
       "maxWordNotes": 2
+    },
+    {
+      "site": "exodus",
+      "repo": "Exodus",
+      "root": "content/exodus",
+      "book": "Exodus",
+      "chapterCount": 40,
+      "maxWordNotes": 2
     }
   ]
 }
