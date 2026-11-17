@@ -264,7 +264,7 @@
   .testament-head h3{font-size:1.55rem;}
   .testament-kicker{display:block;margin-bottom:4px;color:var(--brass-deep);font-family:"Inter",sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;}
   .study-count{color:var(--muted);font-family:"Inter",sans-serif;font-size:.68rem;white-space:nowrap;}
-  .directory-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(128px,1fr));gap:10px;margin-top:16px;}
+  .directory-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:10px;margin-top:16px;}
   .directory-link{position:relative;display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:13px;align-items:center;min-height:70px;padding:12px 14px;border:1px solid var(--rule);border-radius:9px;background:rgba(255,253,248,.74);box-shadow:0 8px 18px rgba(11,31,58,.05);color:inherit;text-decoration:none;transition:transform .2s ease,border-color .2s ease,background .2s ease,box-shadow .2s ease;}
   .directory-link:hover{transform:translateY(-3px);border-color:rgba(177,126,43,.42);background:#fffdf8;box-shadow:0 18px 34px rgba(11,31,58,.09);}
   .book-order{font-family:"Cormorant Garamond",Georgia,serif;font-size:1.06rem;line-height:1;color:var(--brass-deep);}
@@ -307,8 +307,15 @@
     .explore-tab{padding-inline:10px;}
     .explore-mode-note{display:none;}
     .book-browser,.topic-browser{grid-template-columns:1fr;gap:36px;}
-    .directory-list{grid-template-columns:repeat(auto-fit,minmax(118px,1fr));}
+    .directory-list{grid-template-columns:repeat(2,minmax(0,1fr));}
+    .directory-link{grid-template-columns:minmax(0,1fr) auto;gap:2px 8px;padding:10px 12px;}
+    .directory-link .book-order{grid-column:1;grid-row:1;}
+    .directory-link .directory-copy{grid-column:1;grid-row:2;}
+    .directory-link .directory-arrow{grid-column:2;grid-row:1 / span 2;}
     .topic-links{grid-template-columns:1fr;}
+  }
+  @media(max-width:360px){
+    .directory-list{grid-template-columns:1fr;}
   }
  
   /* suggestion box */
